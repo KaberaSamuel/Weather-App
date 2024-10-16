@@ -6,7 +6,6 @@ async function logWeather(city) {
   console.log(response);
   console.log("");
   console.log("");
-  response = response.currentConditions;
 
   const temperature = ((response.temp - 32) * 5) / 9;
 
@@ -19,5 +18,3 @@ async function logWeather(city) {
   console.log("humidity: " + humidity);
   console.log("windspeed: " + windspeed);
 }
-
-const result = logWeather("kigali");
