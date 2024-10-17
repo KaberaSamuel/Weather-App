@@ -77,3 +77,7 @@ a {
   flex-direction: column;
   gap: 4px;
 }
+
+.side-nav img {
+  transform: rotate(10deg);
+}

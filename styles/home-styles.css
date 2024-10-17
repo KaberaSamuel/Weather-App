@@ -110,8 +110,8 @@
 
 .air-conditions a {
   background-color: var(--lightblue);
-  padding: 4px 15px 5px;
-  border-radius: 15px;
+  padding: 6px 13px 6px;
+  border-radius: 11px;
 }
 
 .air-conditions .header {
@@ -165,7 +165,8 @@
 }
 
 .week-forecast .day {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
   justify-content: space-between;
   align-items: center;
   flex: 1 1 auto;
@@ -185,6 +186,10 @@
 .week-forecast .day span {
   color: var(--lightwhite);
   font-weight: 700;
+}
+
+.week-forecast .day > p:last-child {
+  text-align: right;
 }
 
 .week-forecast .day img {
