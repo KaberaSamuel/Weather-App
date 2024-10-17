@@ -14,17 +14,17 @@
   border: none;
   width: 100%;
   border-radius: 15px;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
-.major {
+.current-city {
   display: flex;
   justify-content: space-between;
   padding: 10px 50px;
   padding-right: 90px;
 }
 
-.major .left {
+.current-city .left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,26 +33,24 @@
   color: var(--lightgray);
 }
 
-.major .large {
+.current-city .large {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--lightwhite);
   margin-bottom: 3px;
 }
 
-.major .degrees {
+.current-city .degrees {
   font-size: 2rem;
   font-weight: 700;
   color: var(--lightwhite);
-  /* transform: translateY(-10px); */
 }
 
-.major .right {
-  /* border: 2px red solid; */
+.current-city .right {
   align-content: center;
 }
 
-.major img {
+.current-city img {
   width: 120px;
   height: 120px;
 }
