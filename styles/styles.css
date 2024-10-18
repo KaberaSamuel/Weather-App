@@ -6,7 +6,7 @@
 
 :root {
   --dark: rgb(10, 15, 25);
-  --lightdark: rgb(30, 40, 50);
+  --lightdark: rgb(30, 40, 55);
   --lightwhite: rgb(230, 230, 230);
   --darkbluelinecolor: rgb(60, 60, 80);
   --lightblue: rgb(0, 110, 230);
@@ -22,10 +22,29 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.7px;
   display: grid;
-  grid-template-columns: 80px 61% 30%;
+  grid-template-columns: 63% 35%;
   justify-content: space-between;
   height: 100vh;
   text-align: center;
+  width: calc(100vw - 100px);
+  max-width: calc(100vw - 100px);
+  margin-left: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border: 7px;
+  -webkit-border-radius: 7px;
+  background-color: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 7px;
+  -webkit-border-radius: 7px;
+  background-color: var(--lightwhite);
 }
 
 body > * {
@@ -57,6 +76,11 @@ a {
   color: var(--lightgray);
   font-size: 0.6rem;
   font-weight: 700;
+  position: fixed;
+  width: 80px;
+  top: 15px;
+  bottom: 15px;
+  left: 20px;
 }
 
 .side-nav .active,
@@ -80,4 +104,19 @@ a {
 
 .side-nav img {
   transform: rotate(10deg);
+}
+
+/* general main styles */
+.main input {
+  color: var(--lightwhite);
+  background-color: var(--lightdark);
+  height: 100%;
+  border: none;
+  width: 100%;
+  border-radius: 15px;
+  padding-left: 20px;
+}
+
+.main input::placeholder {
+  color: var(--lightwhite);
 }

@@ -9,16 +9,6 @@
   margin-bottom: 20px;
 }
 
-input {
-  height: 100%;
-  width: 100%;
-  background-color: var(--lightdark);
-  color: var(--lightwhite);
-  border: none;
-  border-radius: 15px;
-  padding-left: 20px;
-}
-
 .main .city {
   background-color: var(--lightdark);
   border-radius: 20px;

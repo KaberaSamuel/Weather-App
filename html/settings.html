@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/settings-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="../script/weatherUI.js"></script>
+    <script src="../script/fetch-data.js" defer></script>
+  </head>
+
+  <body>
+    <section class="side-nav">
+      <div>
+        <a href="home.html"><img src="../images/umbrella.png" /></a>
+      </div>
+
+      <div class="active">
+        <a href="home.html"><i class="fa-solid fa-cloud-sun-rain"></i></a>
+        <p>Weather</p>
+      </div>
+
+      <div>
+        <a href="cities.html"><i class="fa-solid fa-list-ul"></i></a>
+        <p>Cities</p>
+      </div>
+
+      <div>
+        <a href="map.html"><i class="fa-solid fa-map"></i></a>
+        <p>Map</p>
+      </div>
+
+      <div>
+        <a href="settings.html"><i class="fa-solid fa-sliders"></i></a>
+        <p>Settings</p>
+      </div>
+    </section>
+
+    <section class="middle">
+      <div class="header">
+        <input type="text" placeholder="Search for cities" />
+      </div>
+
+      <div class="units">
+        <p class="header">Units</p>
+
+        <div class="all-units">
+          <div class="aspect">
+            <p class="header">Temperature</p>
+            <div class="measure temperature">
+              <p class="active">Celsius</p>
+              <p>Fahrenheit</p>
+            </div>
+          </div>
+
+          <div class="aspect">
+            <p class="header">Wind</p>
+            <div class="measure wind border">
+              <p class="active">km/h</p>
+              <p>m/s</p>
+              <p>knots</p>
+            </div>
+          </div>
+
+          <div class="aspect">
+            <p class="header">Pressure</p>
+            <div class="measure pressure border">
+              <p>hpa</p>
+              <p>inches</p>
+              <p>kpa</p>
+              <p class="active">mm</p>
+            </div>
+          </div>
+
+          <div class="aspect">
+            <p class="header">Precipitation</p>
+            <div class="measure precipitation">
+              <p class="active">Millimeters</p>
+              <p>Inches</p>
+            </div>
+          </div>
+
+          <div class="aspect">
+            <p class="header">Distance</p>
+            <div class="measure distance">
+              <p class="active">Kilometers</p>
+              <p>Meters</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="header">Notifications</p>
+
+        <div class="notifications">
+          <div>
+            <p>Notifications</p>
+            <p>Be aware of weather</p>
+          </div>
+
+          <div class="toggle-notications">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="right-side"></section>
+  </body>
+</html>

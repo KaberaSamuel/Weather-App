@@ -1,0 +1,98 @@
+:root {
+  --measurebg: rgb(48, 57, 75);
+}
+
+/* middle section styles */
+.middle {
+  background-color: var(--dark);
+  text-align: left;
+}
+
+.middle > .header {
+  height: 45px;
+}
+
+.middle > div > .header {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.middle > div {
+  margin-bottom: 20px;
+}
+
+input {
+  color: var(--lightwhite);
+  background-color: var(--lightdark);
+  height: 100%;
+  border: none;
+  width: 100%;
+  border-radius: 15px;
+  padding-left: 20px;
+}
+
+.middle input::placeholder {
+  color: var(--lightwhite);
+}
+
+/* units styles */
+.all-units {
+  background-color: var(--lightdark);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.aspect .header {
+  margin-bottom: 7px;
+  color: var(--lightgray);
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.measure {
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 30px;
+  padding: 0 3px;
+}
+
+.measure p {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.measure.border p {
+  border-right: 2px solid var(--darkbluelinecolor);
+}
+
+.measure p.active {
+  border-radius: 7px;
+  background-color: var(--measurebg);
+  border: none;
+  height: 80%;
+  line-height: 150%;
+}
+
+.measure p:last-child {
+  border: none;
+}
+
+.all-units div:nth-child(3) .measure p:nth-child(3) {
+  border: none;
+}
+
+/* notification styles */
+.notifications {
+  background-color: var(--lightdark);
+  padding: 20px;
+  border-radius: 20px;
+}
