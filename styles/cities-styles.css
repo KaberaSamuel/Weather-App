@@ -65,8 +65,6 @@
 
 /* weather styles (right container) */
 body > .weather {
-  height: calc(100% - 50px);
-  align-self: self-end;
   display: flex;
   flex-direction: column;
   background-color: var(--dark);

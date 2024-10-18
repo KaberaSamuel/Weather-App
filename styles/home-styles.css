@@ -136,8 +136,6 @@
 
 /* week-forecast styles */
 .week-forecast {
-  height: calc(100% - 50px);
-  align-self: end;
   padding: 20px 30px 10px;
   text-align: left;
   color: var(--lightgray);

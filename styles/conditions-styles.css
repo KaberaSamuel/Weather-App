@@ -99,8 +99,6 @@
 
 /* forecast styles */
 .forecast {
-  height: calc(100% - 50px);
-  align-self: end;
   display: flex;
   flex-direction: column;
   gap: 12px;
