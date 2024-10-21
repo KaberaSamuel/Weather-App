@@ -107,7 +107,7 @@ a {
   transform: rotate(10deg);
 }
 
-.main input {
+input {
   color: var(--lightwhite);
   background-color: var(--lightdark);
   height: 100%;

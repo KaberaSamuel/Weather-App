@@ -1,0 +1,53 @@
+.main,
+.cities {
+  background-color: var(--dark);
+}
+
+.main > div:first-child {
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+/* map */
+.map {
+  background-color: var(--lightdark);
+  border-radius: 20px;
+  height: calc(100% - 70px);
+}
+
+/* cities */
+.cities .city {
+  background-color: var(--lightdark);
+  border-radius: 20px;
+  display: flex;
+  padding: 20px 30px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.cities .city img {
+  width: 40px;
+  height: 40px;
+  margin-right: 30px;
+}
+
+.cities .city .degrees {
+  text-align: right;
+  flex: 1 1 auto;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.cities .city .description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--lightgray);
+  font-size: 0.8rem;
+}
+
+.cities .city .description .city-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--lightwhite);
+}
