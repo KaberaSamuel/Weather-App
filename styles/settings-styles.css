@@ -72,6 +72,7 @@ input {
   border-radius: 10px;
   height: 30px;
   padding: 0 3px;
+  /* border: 2px solid; */
 }
 
 .measure p {
@@ -81,7 +82,7 @@ input {
 }
 
 .measure.border p {
-  border-right: 2px solid var(--darkbluelinecolor);
+  border-right: var(--lineborder);
 }
 
 .measure p.active {
@@ -89,35 +90,31 @@ input {
   background-color: var(--measurebg);
   border: none;
   height: 80%;
-  line-height: 150%;
+  line-height: 170%;
 }
 
 .measure p:last-child {
-  border: none;
+  border: none !important;
 }
 
-.all-units div:nth-child(3) .measure p:nth-child(3) {
+.measure.pressure p#index-2 {
   border: none;
 }
 
 /* notification styles */
-.notifications,
-.time,
-.location {
+
+.toggle-parent {
   display: flex;
   justify-content: space-between;
+  /* border: 2px solid; */
 }
 
-.notifications .content,
-.time .content,
-.location .content {
+.toggle-parent .content {
   font-weight: 500;
   color: var(--lightgray);
 }
 
-.notifications .content p:first-child,
-.time .content p:first-child,
-.location .content p:first-child {
+.toggle-parent .content p:first-child {
   font-weight: 700;
   color: var(--lightwhite);
   margin-bottom: 3px;
@@ -129,7 +126,7 @@ input {
 }
 
 .time {
-  border-bottom: var(--darkbluelinecolor) 1px solid;
+  border-bottom: var(--lineborder);
 }
 
 .toggle {
@@ -139,16 +136,16 @@ input {
   border-radius: 10px;
   align-self: start;
   padding: 0;
-  padding-left: 2px;
+  padding-left: 3px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   color: var(--lightgray);
 }
 
-.toggle.on {
+.toggle-parent.on .toggle {
   padding: 0;
-  padding-right: 2px;
+  padding-right: 3px;
   justify-content: flex-end;
 }
 
@@ -181,7 +178,7 @@ input {
   font-weight: 700;
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid var(--darkbluelinecolor);
+  border-bottom: var(--lineborder);
 }
 
 .aside .header {
@@ -212,7 +209,7 @@ ul {
 
 .sign-up .header {
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--darkbluelinecolor);
+  border-bottom: var(--lineborder);
 }
 
 .sign-up p:nth-child(2) {

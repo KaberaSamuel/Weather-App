@@ -132,8 +132,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background-color: var(--darkbluelinecolor);
-  /* border: 2px solid red; */
+  background-color: var(--linecolor);
 }
 
 .time-sections .section {
@@ -169,7 +168,7 @@
   justify-content: space-between;
   align-items: center;
   flex: 1 1 auto;
-  border-bottom: var(--darkbluelinecolor) 1px solid;
+  border-bottom: var(--lineborder);
 }
 
 .week-forecast .day:last-child {

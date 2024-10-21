@@ -8,9 +8,10 @@
   --dark: rgb(10, 15, 25);
   --lightdark: rgb(30, 40, 55);
   --lightwhite: rgb(230, 230, 230);
-  --darkbluelinecolor: rgb(60, 60, 80);
+  --linecolor: rgb(60, 60, 80);
   --lightblue: rgb(0, 110, 230);
   --lightgray: rgb(160, 160, 160);
+  --lineborder: var(--linecolor) 1px solid;
 }
 
 body {

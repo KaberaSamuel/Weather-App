@@ -14,8 +14,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <script src="../script/weatherUI.js"></script>
-    <script src="../script/fetch-data.js" defer></script>
+    <script src="../script/UI.js" defer></script>
   </head>
 
   <body>
@@ -65,19 +64,19 @@
           <div class="aspect">
             <p class="header">Wind</p>
             <div class="measure wind border">
-              <p class="active">km/h</p>
-              <p>m/s</p>
-              <p>knots</p>
+              <p class="active" id="index-0">km/h</p>
+              <p id="index-1">m/s</p>
+              <p id="index-2">knots</p>
             </div>
           </div>
 
           <div class="aspect">
             <p class="header">Pressure</p>
             <div class="measure pressure border">
-              <p>hpa</p>
-              <p>inches</p>
-              <p>kpa</p>
-              <p class="active">mm</p>
+              <p id="index-0">hpa</p>
+              <p id="index-1">inches</p>
+              <p id="index-2">kpa</p>
+              <p class="active" id="index-3">mm</p>
             </div>
           </div>
 
@@ -102,7 +101,7 @@
       <div>
         <p class="header">Notifications</p>
 
-        <div class="notifications">
+        <div class="notifications toggle-parent">
           <div class="content">
             <p>Notifications</p>
             <p>Be aware of weather</p>
@@ -118,7 +117,7 @@
         <p class="header">General</p>
 
         <div>
-          <div class="time">
+          <div class="time toggle-parent">
             <div class="content">
               <p>12-Hour time</p>
             </div>
@@ -128,7 +127,7 @@
             </div>
           </div>
 
-          <div class="location">
+          <div class="location toggle-parent">
             <div class="content">
               <p>Location</p>
               <p>Get weather by location</p>
