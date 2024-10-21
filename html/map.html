@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/map-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="../script/fetch-data.js" defer></script>
+  </head>
+
+  <body>
+    <section class="side-nav">
+      <div>
+        <a href="home.html"><img src="../images/umbrella.png" /></a>
+      </div>
+
+      <div class="active">
+        <a href="home.html"><i class="fa-solid fa-cloud-sun-rain"></i></a>
+        <p>Weather</p>
+      </div>
+
+      <div>
+        <a href="cities.html"><i class="fa-solid fa-list-ul"></i></a>
+        <p>Cities</p>
+      </div>
+
+      <div>
+        <a href="map.html"><i class="fa-solid fa-map"></i></a>
+        <p>Map</p>
+      </div>
+
+      <div>
+        <a href="settings.html"><i class="fa-solid fa-sliders"></i></a>
+        <p>Settings</p>
+      </div>
+    </section>
+
+    <section class="main">
+      <div>
+        <input type="text" placeholder="Search for cities" />
+      </div>
+
+      <div class="map"></div>
+    </section>
+
+    <section class="cities">
+      <div class="city">
+        <img src="../images/sun3.png" alt="weather" />
+
+        <div class="description">
+          <p class="city-name">Madrid</p>
+          <p>10:23</p>
+        </div>
+
+        <p class="degrees">37&deg;</p>
+      </div>
+
+      <div class="city">
+        <img src="../images/rainy-day.png" alt="weather" />
+
+        <div class="description">
+          <p class="city-name">Vienna</p>
+          <p>11:54</p>
+        </div>
+
+        <p class="degrees">19&deg;</p>
+      </div>
+
+      <div class="city">
+        <img src="../images/sun3.png" alt="weather" />
+
+        <div class="description">
+          <p class="city-name">Madrid</p>
+          <p>4:21</p>
+        </div>
+
+        <p class="degrees">37&deg;</p>
+      </div>
+
+      <div class="city">
+        <img src="../images/clouds.png" alt="weather" />
+
+        <div class="description">
+          <p class="city-name">Athens</p>
+          <p>9:30</p>
+        </div>
+
+        <p class="degrees">21&deg;</p>
+      </div>
+    </section>
+  </body>
+</html>
