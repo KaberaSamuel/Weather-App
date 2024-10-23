@@ -14,7 +14,8 @@
       referrerpolicy="no-referrer"
     />
 
-    <script src="../script/fetch-data.js" defer></script>
+    <script src="../script/data.js" defer></script>
+    <script src="../script/homeUI.js" defer></script>
   </head>
 
   <body>
@@ -53,16 +54,16 @@
         <div class="left">
           <div class="city">
             <p class="large">Madrid</p>
-            <p>Chance of rain: 0%</p>
+            <p>Chance of rain: <span class="dom">0</span>%</p>
           </div>
 
           <div class="temp">
-            <p class="degrees">39&deg;</p>
+            <p class="degrees"><span class="dom">39</span>&deg;</p>
           </div>
         </div>
 
         <div class="right">
-          <img src="../images/sun3.png" />
+          <img src="../images/sun.png" />
         </div>
       </div>
 
@@ -70,40 +71,40 @@
         <p class="header">TODAY'S FORECAST</p>
 
         <div class="time-sections">
-          <div class="section 6am">
+          <div class="section six-am">
             <p>6:00 AM</p>
-            <img src="../images/rainy-day.png" alt="weather" />
-            <p class="degrees">25&deg;</p>
+            <img src="../images/rain.png" alt="weather" />
+            <p class="degrees"><span>25</span>&deg;</p>
           </div>
 
-          <div class="section 9am">
+          <div class="section nine-am">
             <p>9:00 AM</p>
-            <img src="../images/clouds.png" alt="weather" />
-            <p class="degrees">8&deg;</p>
+            <img src="../images/cloudy.png" alt="weather" />
+            <p class="degrees"><span>8</span>&deg;</p>
           </div>
 
-          <div class="section 12pm">
+          <div class="section twelve-pm">
             <p>12:00 PM</p>
-            <img src="../images/cloudy-Sunny.png" alt="weather" />
-            <p class="degrees">27&deg;</p>
+            <img src="../images/clear-day.png" alt="weather" />
+            <p class="degrees"><span>17</span>&deg;</p>
           </div>
 
-          <div class="section 3pm">
+          <div class="section three-pm">
             <p>3:00 PM</p>
-            <img src="../images/sun3.png" alt="weather" />
-            <p class="degrees">31&deg;</p>
+            <img src="../images/sun.png" alt="weather" />
+            <p class="degrees"><span>31</span>&deg;</p>
           </div>
 
-          <div class="section 6pm">
+          <div class="section six-pm">
             <p>6:00 PM</p>
             <img src="../images/sun.png" alt="weather" />
-            <p class="degrees">28&deg;</p>
+            <p class="degrees"><span>28</span>&deg;</p>
           </div>
 
-          <div class="section 9pm">
+          <div class="section nine-pm">
             <p>9:00 PM</p>
-            <img src="../images/partly-cloudy-night.png" alt="weather" />
-            <p class="degrees">14&deg;</p>
+            <img src="../images/clear-night.png" alt="weather" />
+            <p class="degrees"><span>14</span>&deg;</p>
           </div>
         </div>
       </div>
@@ -119,7 +120,7 @@
             <i class="fa-solid fa-temperature-half"></i>
             <div class="description">
               <p>Reel feel</p>
-              <p class="measure">30&deg;</p>
+              <p class="measure"><span>30</span>&deg;</p>
             </div>
           </div>
 
@@ -127,7 +128,7 @@
             <i class="fa-solid fa-wind"></i>
             <div class="description">
               <p>Wind</p>
-              <p class="measure">0.2 km/h</p>
+              <p class="measure"><span>0.2</span> km/h</p>
             </div>
           </div>
 
@@ -135,7 +136,7 @@
             <i class="fa-solid fa-droplet"></i>
             <div class="description">
               <p>Chance of Rain</p>
-              <p class="measure">0%</p>
+              <p class="measure"><span>0</span>%</p>
             </div>
           </div>
 
@@ -143,7 +144,7 @@
             <i class="fa-solid fa-sun"></i>
             <div class="description">
               <p>UV index</p>
-              <p class="measure">3</p>
+              <p class="measure"><span>3</span></p>
             </div>
           </div>
         </div>
@@ -155,7 +156,7 @@
       <div class="day day-1">
         <p>Today</p>
         <div class="weather">
-          <img src="../images/sun3.png" alt="weather" />
+          <img src="../images/sun.png" alt="weather" />
           <p>Sunny</p>
         </div>
         <p><span>36</span>/22</p>
@@ -164,7 +165,7 @@
       <div class="day day-2">
         <p>Tues</p>
         <div class="weather">
-          <img src="../images/sun3.png" alt="weather" />
+          <img src="../images/sun.png" alt="weather" />
           <p>Sunny</p>
         </div>
         <p><span>37</span>/21</p>
@@ -182,7 +183,7 @@
       <div class="day day-4">
         <p>Thur</p>
         <div class="weather">
-          <img src="../images/clouds.png" alt="weather" />
+          <img src="../images/cloudy.png" alt="weather" />
           <p>cloudy</p>
         </div>
         <p><span>37</span>/21</p>
@@ -191,7 +192,7 @@
       <div class="day day-5">
         <p>Fri</p>
         <div class="weather">
-          <img src="../images/clouds.png" alt="weather" />
+          <img src="../images/cloudy.png" alt="weather" />
           <p>clouds</p>
         </div>
         <p><span>37</span>/21</p>
@@ -200,7 +201,7 @@
       <div class="day day-6">
         <p>Sat</p>
         <div class="weather">
-          <img src="../images/sun3.png" alt="weather" />
+          <img src="../images/sun.png" alt="weather" />
           <p>Sunny</p>
         </div>
         <p><span>36</span>/22</p>
@@ -209,7 +210,7 @@
       <div class="day day-7">
         <p>Sun</p>
         <div class="weather">
-          <img src="../images/rainy-day.png" alt="weather" />
+          <img src="../images/rain.png" alt="weather" />
           <p>rainy</p>
         </div>
         <p><span>36</span>/22</p>
