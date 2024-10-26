@@ -100,6 +100,7 @@ body > .weather > div:last-child {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--lightwhite);
+  text-transform: capitalize;
   margin-bottom: 2px;
 }
 
@@ -124,12 +125,12 @@ body > .weather > div:last-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   text-align: left;
   font-size: 0.6rem;
   color: var(--lightgray);
   font-weight: 700;
-  padding: 20px 0;
+  padding: 20px 0 23px;
 }
 
 .today-forecast .degrees {
@@ -161,7 +162,7 @@ body > .weather > div:last-child {
   padding: 20px 0 0;
   text-align: left;
   color: var(--lightgray);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   display: flex;
   flex-direction: column;
 }
@@ -189,6 +190,12 @@ body > .weather > div:last-child {
   display: flex;
   gap: 15px;
   justify-self: start;
+  font-size: 0.65rem;
+  align-items: center;
+}
+
+.week-forecast .day > p:first-child {
+  font-size: 0.7rem;
 }
 
 .week-forecast .day .weather,
@@ -199,6 +206,8 @@ body > .weather > div:last-child {
 
 .week-forecast .day > p:last-child {
   text-align: right;
+  font-size: 0.65rem;
+  letter-spacing: 0.08rem;
 }
 
 .week-forecast .day img {

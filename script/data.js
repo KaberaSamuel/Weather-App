@@ -49,44 +49,53 @@ const weekForecast = {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   1: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   2: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   3: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   4: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   5: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 
   6: {
     icon: "",
     dayName: "",
     date: "",
+    description: "",
   },
 };
+
+const locations = {};
 
 function updateConditions(weatherData) {
   const currentConditions = weatherData.currentConditions;
@@ -134,6 +143,13 @@ function updateWeekForecast(weatherData) {
     let date = new Date(day.datetime);
     let dayName = dayNames[date.getDay()];
     const dateArray = date.toString().split(" ");
+    let conditions = day.conditions;
+
+    if (conditions.toString().includes(",")) {
+      conditions = conditions.split(",")[0];
+    }
+
+    // conditions = conditions.replaceAll("Partially ", "");
 
     // updating date to be an array of a day and a month
     date = [dateArray[2], dateArray[1]];
@@ -145,14 +161,21 @@ function updateWeekForecast(weatherData) {
     weekForecast[index].icon = icon;
     weekForecast[index].dayName = dayName;
     weekForecast[index].date = date;
+    weekForecast[index].description = conditions;
   });
 }
 
+function updateLocations(locationName) {
+  const length = Object.keys(locations).length + 1;
+  locations[`location${length}`] = { name: locationName };
+}
+
 // function for updating weather trackers as a whole
-function updateWeatherTrackers(weatherData) {
+function updateWeatherTrackers(weatherData, location) {
   updateConditions(weatherData);
   updateDaySections(weatherData);
   updateWeekForecast(weatherData);
+  updateLocations(location);
 }
 
 async function getWeatherData(location) {
@@ -160,14 +183,14 @@ async function getWeatherData(location) {
 
   let response = await fetch(url, { mode: "cors" });
   response = await response.json();
-  updateWeatherTrackers(response);
+  updateWeatherTrackers(response, location);
 
   console.log(" fetching data completed");
   return response;
 }
 
-// function for updating currect location
-function updateCurrentCity(location) {
+// function for updating currect location on UI
+function updateCurrentCityUI(location) {
   const cityName = document.querySelector(" .current-city .large");
   const rainChance = document.querySelector(".current-city .city span");
   const temperature = document.querySelector(".current-city .temp span");
@@ -177,12 +200,10 @@ function updateCurrentCity(location) {
   rainChance.textContent = conditions.rainchance;
   temperature.textContent = conditions.temp;
   img.src = getImage(conditions.icon);
-
-  console.log(`\ndone updating current location \n`);
 }
 
 // updating time sections throught the day on UI
-function updateTimeSections(maxcount) {
+function updateTimeSectionsUI(maxcount) {
   let index = 0;
   const timeSectionsArray = Array.from(
     document.querySelectorAll(".time-sections .section")
@@ -195,7 +216,6 @@ function updateTimeSections(maxcount) {
       daySections[index].temp;
     index++;
   }
-  console.log("\n" + "done");
 }
 
 // updating week forecast on UI
@@ -209,7 +229,7 @@ function updateWeekForecastUI(maxcount) {
     const dayData = weekForecast[index];
 
     dayUI.querySelector("img").src = getImage(dayData.icon);
-    dayUI.querySelector(".weather p").textContent = dayData.icon;
+    dayUI.querySelector(".weather p").textContent = dayData.description;
     dayUI.children[0].textContent = dayData.dayName;
     dayUI.children[2].innerHTML = `<span>${dayData.date[0]}</span>/${dayData.date[1]}`;
 
@@ -217,36 +237,7 @@ function updateWeekForecastUI(maxcount) {
   }
 }
 
-// updating air conditions
-function updateAirConditions() {
-  document.querySelector(
-    ".air-conditions .grid .condition:first-child .measure span"
-  ).textContent = conditions.feelslike;
-
-  document.querySelector(
-    ".air-conditions .grid .condition:nth-child(2) .measure span"
-  ).textContent = conditions.windspeed;
-
-  document.querySelector(
-    ".air-conditions .grid .condition:nth-child(3) .measure span"
-  ).textContent = conditions.rainchance;
-
-  document.querySelector(
-    ".air-conditions .grid .condition:nth-child(4) .measure span"
-  ).textContent = conditions.uvindex;
-}
-
 // function for getting image based on icon text
 function getImage(icon) {
   return `../images/${icon}.png`;
 }
-
-// adding event listener on input field
-const input = document.querySelector("input");
-input.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    const location = input.value;
-    input.value = "";
-    getWeatherData(location);
-  }
-});

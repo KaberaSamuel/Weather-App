@@ -27,6 +27,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--lightwhite);
+  text-transform: capitalize;
   margin-bottom: 3px;
 }
 
@@ -139,13 +140,12 @@
   padding: 20px 30px 10px;
   text-align: left;
   color: var(--lightgray);
-  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
+  font-size: 0.7rem;
 }
 
 .week-forecast .header {
-  font-size: 0.6rem;
   font-weight: 700;
   margin-bottom: 5px;
 }
@@ -163,9 +163,16 @@
   border: none;
 }
 
+.week-forecast .day > p:first-child {
+  font-size: 0.8rem;
+}
+
 .week-forecast .day .weather {
   display: flex;
   gap: 20px;
+  line-height: 0.9rem;
+  font-size: 0.65rem;
+  align-items: center;
 }
 
 .week-forecast .day .weather,
@@ -176,6 +183,8 @@
 
 .week-forecast .day > p:last-child {
   text-align: right;
+  letter-spacing: 0.08rem;
+  font-size: 0.65rem;
 }
 
 .week-forecast .day img {
