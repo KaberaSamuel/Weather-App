@@ -1,5 +1,6 @@
 // updating air conditions
 function updateAirConditionsUI() {
+  const conditions = JSON.parse(localStorage.weatherData).conditions;
   document.querySelector(
     ".air-conditions .grid .condition:first-child .measure span"
   ).textContent = conditions.feelslike;
@@ -17,45 +18,15 @@ function updateAirConditionsUI() {
   ).textContent = conditions.uvindex;
 }
 
-function showWeather(location) {
-  getWeatherData(location).then((response) => {
-    updateCurrentCityUI(location);
-    updateTimeSectionsUI(6);
-    updateWeekForecastUI(7);
-    updateAirConditionsUI();
-  });
+// function of showing respective weather elements on the UI and update data on the backend as well
+function display(location) {
+  updateTimeSectionsUI(6);
+  updateCurrentCityUI();
+  updateWeekForecastUI(7);
+  updateAirConditionsUI();
 }
 
-//function to get city based on location of the user
-function getCity() {
-  return new Promise(function (resolve) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        // when user allows to track his/her location
-        const [lat, long] = [
-          position.coords.latitude,
-          position.coords.longitude,
-        ];
-
-        const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&apiKey=a7ac46ddef7241df9be80c31e44089e5`;
-
-        fetch(url)
-          .then((response) => response.json())
-          .then((result) => {
-            const city = result.features[0].properties.city;
-            resolve(city);
-          })
-          .catch(() => resolve("newyork"));
-      },
-      () => {
-        // when user refuses to track his/her location
-        resolve("newyork");
-      }
-    );
-  });
-}
-
-getCity().then((city) => showWeather(city));
+display();
 
 // adding event listener on input field
 const input = document.querySelector("input");
@@ -63,6 +34,6 @@ input.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
     const location = input.value;
     input.value = "";
-    showWeather(location);
+    display(location);
   }
 });
