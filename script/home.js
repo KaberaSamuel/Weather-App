@@ -19,9 +19,9 @@ function updateAirConditionsUI() {
 }
 
 // function of showing respective weather elements on the UI and update data on the backend as well
-function display(location) {
-  updateTimeSectionsUI(6);
+function display() {
   updateCurrentCityUI();
+  updateTimeSectionsUI(6);
   updateWeekForecastUI(7);
   updateAirConditionsUI();
 }
@@ -32,8 +32,12 @@ display();
 const input = document.querySelector("input");
 input.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
-    const location = input.value;
+    let location = input.value;
     input.value = "";
-    display(location);
+    location = location.replaceAll(" ", "");
+    location = location.toLowerCase();
+    getWeatherData(location).then(() => {
+      display();
+    });
   }
 });

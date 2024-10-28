@@ -1,6 +1,8 @@
 "use strict";
 
 // dealing with local storage
+localStorage.clear();
+
 const weatherData = {
   conditions: {
     icon: "",
@@ -134,6 +136,7 @@ function getCity() {
 }
 
 getCity().then((city) => {
+  city = city.toLowerCase();
   getWeatherData(city).then(() =>
     console.log(JSON.parse(localStorage.weatherData))
   );

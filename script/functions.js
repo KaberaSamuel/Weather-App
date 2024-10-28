@@ -72,16 +72,25 @@ function updateWeekForecast(weatherObject, fetchedData) {
 }
 
 function updateLocations(weatherObject, locationName) {
-  const object = {
+  const locationObject = {
     name: locationName,
   };
 
-  const array = JSON.parse(localStorage.weatherData).locations;
-  array.push(object);
-  weatherObject.locations = array;
+  // catching situation where a location is used more than once
+  if (weatherObject.locations.length > 0) {
+    const numberOfLocations = weatherObject.locations.length - 1;
+
+    weatherObject.locations.forEach((location, index) => {
+      if (location.name === locationName) {
+        weatherObject.locations.splice(index, 1);
+      }
+    });
+  }
+
+  weatherObject.locations.push(locationObject);
 }
 
-// function for updating weather tracker as a whole
+// function for updating weather tracker as a whole by returning an weather data object that will be stored on the local storage
 function updateWeatherTracker(fetchedData, location) {
   const weatherData = JSON.parse(localStorage.weatherData);
 
@@ -93,6 +102,7 @@ function updateWeatherTracker(fetchedData, location) {
   return weatherData;
 }
 
+// function receiving location name to fetch weather data using visual crossing weather api
 async function getWeatherData(location) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=4GGPTYXEW5G2EF9FQJUVV9KX3&contentType=json`;
 
@@ -111,7 +121,7 @@ async function getWeatherData(location) {
 function updateCurrentCityUI() {
   const weather = JSON.parse(localStorage.weatherData);
   const conditions = weather.conditions;
-  const currentLocation = weather.locations.reverse()[0];
+  const currentLocation = weather.locations.toReversed()[0];
 
   const cityName = document.querySelector(" .current-city .large");
   const rainChance = document.querySelector(".current-city .city span");
@@ -130,6 +140,7 @@ function updateTimeSectionsUI(maxcount) {
   const timeSectionsArray = Array.from(
     document.querySelectorAll(".time-sections .section")
   );
+  // console.log(timeSectionsArray);
   const daySections = JSON.parse(localStorage.weatherData).daySections;
 
   while (index < maxcount) {
