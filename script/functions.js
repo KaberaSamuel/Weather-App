@@ -55,14 +55,6 @@ function updateWeekForecast(weatherObject, fetchedData) {
     // updating date to be an array of a day and a month
     date = [dateArray[2], dateArray[1]];
 
-    // condition for catching days that start with zero e.g: 0.2,0.3
-    let dayname = date[0].toString();
-    if (dayname.charAt(0) === "0") {
-      dayname = dayname.charAt(1);
-    }
-
-    date[0] = dayname;
-
     weatherObject.weekForecast[index].icon = icon;
     weatherObject.weekForecast[index].dayName = dayName;
     weatherObject.weekForecast[index].date = date;
@@ -71,9 +63,18 @@ function updateWeekForecast(weatherObject, fetchedData) {
   });
 }
 
-function updateLocations(weatherObject, locationName) {
+function updateLocations(weatherObject, fetchedData, locationName) {
+  const now = new Date();
+  let hours = now.getHours();
+  hours = formatNumber(hours);
+  let minutes = now.getMinutes();
+  minutes = formatNumber(minutes);
+
   const locationObject = {
     name: locationName,
+    icon: fetchedData.currentConditions.icon,
+    time: `${hours}:${minutes}`,
+    temperature: fetchedData.currentConditions.temp,
   };
 
   // catching situation where a location is used more than once
@@ -97,7 +98,7 @@ function updateWeatherTracker(fetchedData, location) {
   updateConditions(weatherData, fetchedData);
   updateDaySections(weatherData, fetchedData);
   updateWeekForecast(weatherData, fetchedData);
-  updateLocations(weatherData, location);
+  updateLocations(weatherData, fetchedData, location);
 
   return weatherData;
 }
@@ -173,7 +174,40 @@ function updateWeekForecastUI(maxcount) {
   }
 }
 
+// function for display cities in order they were searched
+function displayCities() {
+  const locations = JSON.parse(localStorage.weatherData).locations.toReversed();
+  const citiesUI = document.querySelector(".cities");
+  citiesUI.innerHTML = "";
+
+  locations.forEach((city) => {
+    let htmlString = `
+          <img src="../images/${city.icon}.png" alt="weather" />
+
+          <div class="description">
+            <p class="city-name">
+              ${city.name}
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+            </p>
+            <p>${city.time}</p>
+          </div>
+
+          <p class="degrees">${city.temperature}&deg;</p>
+    `;
+    const cityElement = document.createElement("div");
+    cityElement.setAttribute("class", "city");
+    cityElement.innerHTML = htmlString;
+
+    citiesUI.appendChild(cityElement);
+  });
+}
+
 // function for getting image based on icon text
 function getImage(icon) {
   return `../images/${icon}.png`;
+}
+
+// funtion for formatting numbers to always start with zeros
+function formatNumber(number) {
+  return number < 10 ? "0" + number : number;
 }
