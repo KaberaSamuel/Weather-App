@@ -9,7 +9,7 @@
 }
 
 /* map */
-.map {
+#map {
   background-color: var(--lightdark);
   border-radius: 20px;
   height: calc(100% - 70px);
@@ -70,13 +70,6 @@
 .main > div:first-child {
   height: 45px;
   margin-bottom: 20px;
-}
-
-/* map */
-.map {
-  background-color: var(--lightdark);
-  border-radius: 20px;
-  height: calc(100% - 70px);
 }
 
 /* cities */
