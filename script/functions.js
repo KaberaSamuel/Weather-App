@@ -1,5 +1,4 @@
 "use strict";
-
 function updateConditions(weatherObject, fetchedData) {
   const currentConditions = fetchedData.currentConditions;
   weatherObject.conditions.temp = currentConditions.temp;
@@ -174,7 +173,7 @@ function updateWeekForecastUI(maxcount) {
   }
 }
 
-// function for display cities in order they were searched
+// function for display cities in order they were searched it will be called  in pages where it is needed
 function displayCities() {
   const locations = JSON.parse(localStorage.weatherData).locations.toReversed();
   const citiesUI = document.querySelector(".cities");
@@ -187,7 +186,7 @@ function displayCities() {
           <div class="description">
             <p class="city-name">
               ${city.name}
-              <i class="fa-solid fa-magnifying-glass-location"></i>
+              <i class="fa-brands fa-searchengin"></i>
             </p>
             <p>${city.time}</p>
           </div>
@@ -199,6 +198,15 @@ function displayCities() {
     cityElement.innerHTML = htmlString;
 
     citiesUI.appendChild(cityElement);
+
+    // using icon to search for cities
+    const searchIcon = cityElement.querySelector("i");
+    searchIcon.addEventListener("click", (e) => {
+      const url = `https://www.google.com/search?q=${encodeURIComponent(
+        city.name
+      )}`;
+      window.open(url, "_blank");
+    });
   });
 }
 
@@ -210,4 +218,20 @@ function getImage(icon) {
 // funtion for formatting numbers to always start with zeros
 function formatNumber(number) {
   return number < 10 ? "0" + number : number;
+}
+
+// updating on location search by firstly checking input field is available
+const input = document.querySelector("input");
+if (input) {
+  input.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      let location = input.value;
+      input.value = "";
+      location = location.replaceAll(" ", "");
+      location = location.toLowerCase();
+      getWeatherData(location).then(() => {
+        display();
+      });
+    }
+  });
 }

@@ -1,5 +1,9 @@
 "use strict";
 
+const getStartedButton = document.querySelector("a");
+// pausing pointer events on anchor tag to wait for server to fetch data
+getStartedButton.style.pointerEvents = "none";
+
 // dealing with local storage
 localStorage.clear();
 
@@ -137,7 +141,7 @@ function getCity() {
 
 getCity().then((city) => {
   city = city.toLowerCase();
-  getWeatherData(city).then(() =>
-    console.log(JSON.parse(localStorage.weatherData))
+  getWeatherData(city).then(
+    () => (getStartedButton.style.pointerEvents = "all")
   );
 });

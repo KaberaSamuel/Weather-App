@@ -8,11 +8,58 @@
   margin-bottom: 20px;
 }
 
-/* map */
+/* customizing map and popups on it */
 #map {
   background-color: var(--lightdark);
   border-radius: 20px;
   height: calc(100% - 70px);
+  overflow: hidden;
+}
+
+.leaflet-control {
+  border-radius: 10px !important;
+  border: 1px solid var(--lightgray) !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom > * {
+  background-color: var(--dark) !important;
+  color: var(--lightwhite) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: var(--dark) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  color: var(--lightwhite) !important;
+  padding: 10px 20px !important;
+  font-size: 0.8rem;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup * {
+  margin: 0 !important;
+}
+
+.popup p:first-child {
+  text-transform: capitalize;
+}
+
+.popup img {
+  width: 40px;
+  height: 40px;
+}
+
+.leaflet-popup-close-button {
+  display: none;
 }
 
 /* cities */
@@ -69,7 +116,7 @@
 
 .main > div:first-child {
   height: 45px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* cities */

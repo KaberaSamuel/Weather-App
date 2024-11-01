@@ -23,12 +23,12 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   letter-spacing: 0.7px;
   display: grid;
-  grid-template-columns: 63% 35%;
+  grid-template-columns: 63.5% 35%;
   justify-content: space-between;
   height: 100vh;
   text-align: center;
-  width: calc(100vw - 105px);
-  max-width: calc(100vw - 105px);
+  width: calc(100vw - 100px);
+
   margin-left: auto;
 }
 
@@ -122,6 +122,6 @@ input {
 }
 
 body > section:last-child {
-  height: calc(100% - 50px);
+  height: calc(100% - 55px);
   align-self: end;
 }
