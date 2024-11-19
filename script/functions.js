@@ -57,7 +57,6 @@ function updateWeekForecast(weatherObject, fetchedData) {
     weatherObject.weekForecast[index].icon = icon;
     weatherObject.weekForecast[index].dayName = dayName;
     weatherObject.weekForecast[index].date = date;
-
     weatherObject.weekForecast[index].description = conditions;
   });
 }
@@ -110,7 +109,6 @@ async function getWeatherData(location) {
   result = await result.json();
 
   const updatedWeather = updateWeatherTracker(result, location);
-  // console.log(updatedWeather);
 
   localStorage.setItem("weatherData", JSON.stringify(updatedWeather));
 

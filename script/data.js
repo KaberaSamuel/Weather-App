@@ -106,6 +106,14 @@ const weatherData = {
   },
 
   locations: [],
+
+  units: {
+    temperature: "c",
+    wind: "km/h",
+    pressure: "mm",
+    precipitation: "mm",
+    distance: "km",
+  },
 };
 
 localStorage.setItem("weatherData", JSON.stringify(weatherData));
