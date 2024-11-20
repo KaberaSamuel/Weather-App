@@ -16,6 +16,9 @@ function updateAirConditionsUI() {
   document.querySelector(
     ".air-conditions .grid .condition:nth-child(4) .measure span"
   ).textContent = conditions.uvindex;
+
+  // dealing with matching wind speed unit
+  units.changeWindSpeed();
 }
 
 // function of showing respective weather elements on the UI and update data on the backend as well

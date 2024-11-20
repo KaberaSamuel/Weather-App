@@ -24,6 +24,12 @@ function updateConditionsUI() {
 
   document.querySelector(".grid .uv-index .measure span").textContent =
     conditions.uvindex;
+
+  // dealing of changing of measurement units
+  units.changeWindSpeed();
+  units.changeDistance();
+  units.changePressure();
+  units.changeDistance();
 }
 
 function display() {

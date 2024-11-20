@@ -1,6 +1,7 @@
 const toggleParents = Array.from(document.querySelectorAll(".toggle-parent"));
 const measures = Array.from(document.querySelectorAll(".measure"));
 
+// toggle on and off on notifications settings
 toggleParents.forEach((parent) => {
   const child = parent.querySelector(".toggle");
   child.addEventListener("click", () => {
@@ -8,23 +9,10 @@ toggleParents.forEach((parent) => {
   });
 });
 
-measures.forEach((parent) => {
-  Array.from(parent.children).forEach((child) => {
-    child.addEventListener("click", function (event) {
-      parent.querySelector(".active").classList.remove("active");
-      event.currentTarget.classList.add("active");
-
-      if (parent.classList.contains("border")) {
-        checkMeasureBorder(parent);
-      }
-    });
-  });
-});
-
 // function ensuring that right border is set on right items measure container
-function checkMeasureBorder(parent) {
-  const childrens = Array.from(parent.children);
-  childrens.forEach((child) => {
+function checkBorder(parent) {
+  const children = Array.from(parent.children);
+  children.forEach((child) => {
     child.style.border = "none";
     const currentId = parent.querySelector(".active").id.at(-1);
     const childId = child.id.at(-1);
@@ -36,48 +24,157 @@ function checkMeasureBorder(parent) {
   });
 }
 
+function setActive(element) {
+  const parent = element.parentElement;
+  Array.from(parent.children).forEach((child) =>
+    child.classList.remove("active")
+  );
+  element.classList.add("active");
+}
+
 function customizeTemperatureUnits(e) {
-  const property = e.target.textContent.toLowerCase();
-  const weatherData = JSON.parse(localStorage.weatherData);
-  const temperature = weatherData.conditions.temp;
-  const measure = weatherData.units.temperature;
-  let newTemperature;
-  let newMeasure;
+  const element = e.target;
+  setActive(element);
+  const property = element.textContent.toLowerCase();
+  const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+  weatherData.conditions.temp = weatherData.units.temperature[property];
+  weatherData.units.temperature.current = property;
 
-  // checking if there is no repeating of the same measure
-  if (
-    (property === "celsius" && measure === "f") ||
-    (property === "fahrenheit" && measure === "c")
-  ) {
-    if (property === "celsius") {
-      newTemperature = ((temperature - 32) * 5) / 9;
-      newMeasure = "c";
-    } else if ("fahrenheit") {
-      newTemperature = (temperature * 9) / 5 + 32;
-      newMeasure = "f";
-    }
-
-    weatherData.conditions.temp = newTemperature;
-    weatherData.units.temperature = newMeasure;
-    localStorage.setItem("weatherData", JSON.stringify(weatherData));
-  }
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
 }
 
 function customizeWindUnits(e) {
+  const element = e.target;
+  setActive(element);
+  checkBorder(element.parentElement);
+
+  let property = element.textContent.toLowerCase();
+  property = property.replace("/", "");
   const weatherData = JSON.parse(localStorage.weatherData);
+  weatherData.conditions.windspeed = weatherData.units.wind[property];
+  weatherData.units.wind.current = property;
+
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
+}
+
+function customizePressureUnits(e) {
+  const element = e.target;
+  setActive(element);
+  checkBorder(element.parentElement);
+  const property = element.textContent.toLowerCase();
+  const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+  weatherData.conditions.pressure = weatherData.units.pressure[property];
+  weatherData.units.pressure.current = property;
+
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
+}
+
+function customizeDistanceUnits(e) {
+  const element = e.target;
+  setActive(element);
+
+  const property = element.textContent.toLowerCase();
+  const weatherData = JSON.parse(localStorage.weatherData);
+  weatherData.conditions.visibility = weatherData.units.distance[property];
+  weatherData.units.distance.current = property;
+
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
+}
+
+function customizeFeelslikeUnits(e) {
+  const element = e.target;
+  setActive(element);
+  const property = element.textContent.toLowerCase();
+  const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+  weatherData.conditions.feelslike = weatherData.units.feelslike[property];
+  weatherData.units.feelslike.current = property;
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
+}
+
+function customizePrecipitationUnits(e) {
+  const element = e.target;
+  setActive(element);
+  const property = element.textContent.toLowerCase();
+  const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+  weatherData.units.precipitation.current = property;
+  localStorage.setItem("weatherData", JSON.stringify(weatherData));
 }
 
 (function customizingUnits() {
-  const temperatureUnits = Array.from(
-    document.querySelectorAll(".temperature p")
-  );
-  const windUnits = Array.from(document.querySelectorAll(".wind p"));
+  const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+  const temperatureUnits = document.querySelector(".temperature");
+  const windUnitsParent = document.querySelector(".wind");
+  const pressureUnitsParent = document.querySelector(".pressure");
+  const distanceUnitsParent = document.querySelector(".distance");
+  const precipitationUnitsParent = document.querySelector(".precipitation");
 
-  temperatureUnits.forEach((element) => {
-    element.addEventListener("click", customizeTemperatureUnits);
+  Array.from(temperatureUnits.children).forEach((element) => {
+    if (
+      element.textContent.toLowerCase() ===
+      weatherData.units.temperature.current
+    ) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+
+    element.addEventListener("click", (e) => {
+      customizeTemperatureUnits(e);
+      customizeFeelslikeUnits(e);
+    });
   });
 
-  windUnits.forEach((element) => {
+  Array.from(windUnitsParent.children).forEach((element) => {
+    if (
+      element.textContent.toLowerCase().replace("/", "") ===
+      weatherData.units.wind.current
+    ) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+
     element.addEventListener("click", customizeWindUnits);
   });
+
+  Array.from(pressureUnitsParent.children).forEach((element) => {
+    if (
+      element.textContent.toLowerCase() === weatherData.units.pressure.current
+    ) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+
+    element.addEventListener("click", customizePressureUnits);
+  });
+
+  Array.from(distanceUnitsParent.children).forEach((element) => {
+    if (
+      element.textContent.toLowerCase() === weatherData.units.distance.current
+    ) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+
+    element.addEventListener("click", customizeDistanceUnits);
+  });
+
+  Array.from(precipitationUnitsParent.children).forEach((element) => {
+    if (
+      element.textContent.toLowerCase() ===
+      weatherData.units.precipitation.current
+    ) {
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
+    }
+
+    element.addEventListener("click", customizePrecipitationUnits);
+  });
+
+  // checking border on every page load
+  checkBorder(windUnitsParent);
+  checkBorder(pressureUnitsParent);
 })();

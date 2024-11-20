@@ -1,16 +1,26 @@
 "use strict";
 function updateConditions(weatherObject, fetchedData) {
   const currentConditions = fetchedData.currentConditions;
-  weatherObject.conditions.temp = currentConditions.temp;
-  weatherObject.conditions.pressure = currentConditions.pressure;
-  weatherObject.conditions.windspeed = currentConditions.windspeed;
+
+  const tempUnit = weatherObject.units.temperature.current;
+  const windUnit = weatherObject.units.wind.current;
+  const pressureUnit = weatherObject.units.pressure.current;
+  const distanceUnit = weatherObject.units.distance.current;
+
+  weatherObject.conditions.temp = weatherObject.units.temperature[tempUnit];
+  weatherObject.conditions.pressure =
+    weatherObject.units.pressure[pressureUnit];
+  weatherObject.conditions.windspeed = weatherObject.units.wind[windUnit];
+  weatherObject.conditions.visibility =
+    weatherObject.units.distance[distanceUnit];
+
+  weatherObject.conditions.rainchance = currentConditions.precipprob;
   weatherObject.conditions.feelslike = currentConditions.feelslike;
   weatherObject.conditions.uvindex = currentConditions.uvindex;
-  weatherObject.conditions.visibility = currentConditions.visibility;
   weatherObject.conditions.sunset = currentConditions.sunset;
   weatherObject.conditions.humidity = currentConditions.humidity;
   weatherObject.conditions.icon = currentConditions.icon;
-  weatherObject.conditions.rainchance = currentConditions.precipprob;
+
   weatherObject.conditions.description = currentConditions.conditions;
 }
 
@@ -89,10 +99,58 @@ function updateLocations(weatherObject, fetchedData, locationName) {
   weatherObject.locations.push(locationObject);
 }
 
+function updateUnits(weatherObject, fetchedData) {
+  // temperature units
+  const celsius = Math.round(fetchedData.currentConditions.temp * 100) / 100;
+  const fahrenheit = Math.round(((celsius * 9) / 5 + 32) * 100) / 100;
+  weatherObject.units.temperature.current = "celsius";
+  weatherObject.units.temperature.celsius = celsius;
+  weatherObject.units.temperature.fahrenheit = fahrenheit;
+
+  // wind speed units
+  const kmh = Math.round(fetchedData.currentConditions.windspeed * 100) / 100;
+  const ms = Math.round((kmh / 3.6) * 100) / 100;
+  const knots = Math.round((kmh / 1.852) * 100) / 100;
+  weatherObject.units.wind.current = "kmh";
+  weatherObject.units.wind.kmh = kmh;
+  weatherObject.units.wind.ms = ms;
+  weatherObject.units.wind.knots = knots;
+
+  // pressure units
+  const hpa = Math.round(fetchedData.currentConditions.pressure * 100) / 100;
+  const inches = Math.round(hpa * 0.2953 * 100) / 100;
+  const kpa = Math.round(hpa * 0.1 * 100) / 100;
+  const mmhg = Math.round(hpa * 0.75006 * 100) / 100;
+  weatherObject.units.pressure.current = "hpa";
+  weatherObject.units.pressure.hpa = hpa;
+  weatherObject.units.pressure.inches = inches;
+  weatherObject.units.pressure.kpa = kpa;
+  weatherObject.units.pressure.mm = mmhg;
+
+  // distance units
+  const kilometers = fetchedData.currentConditions.visibility;
+  const meters = kilometers * 1000;
+  weatherObject.units.distance.current = "kilometers";
+  weatherObject.units.distance.kilometers = kilometers;
+  weatherObject.units.distance.meters = meters;
+
+  // feelslike units
+  const celsiusFeelslike =
+    Math.round(fetchedData.currentConditions.feelslike * 100) / 100;
+  const fahrenheitFeelslike =
+    Math.round(((celsiusFeelslike * 9) / 5 + 32) * 100) / 100;
+  weatherObject.units.feelslike.current = "celsius";
+  weatherObject.units.feelslike.celsius = celsiusFeelslike;
+  weatherObject.units.feelslike.fahrenheit = fahrenheitFeelslike;
+
+  // precipitation units
+  weatherObject.units.precipitation.current = "millimeters";
+}
+
 // function for updating weather tracker as a whole by returning an weather data object that will be stored on the local storage
 function updateWeatherTracker(fetchedData, location) {
   const weatherData = JSON.parse(localStorage.weatherData);
-
+  updateUnits(weatherData, fetchedData);
   updateConditions(weatherData, fetchedData);
   updateDaySections(weatherData, fetchedData);
   updateWeekForecast(weatherData, fetchedData);
@@ -112,6 +170,7 @@ async function getWeatherData(location) {
 
   localStorage.setItem("weatherData", JSON.stringify(updatedWeather));
 
+  console.log(JSON.parse(localStorage.weatherData));
   console.log("done");
 }
 
@@ -233,3 +292,31 @@ if (input) {
     }
   });
 }
+
+// object for changing measurements units on the UI eg: from m/s to km/h
+const units = {
+  weather: JSON.parse(localStorage.weatherData),
+  changeWindSpeed: function () {
+    const windspeedUnit = this.weather.units.wind.current;
+    document.querySelector(".measure .windUnit").textContent =
+      windspeedUnit === "ms"
+        ? "m/s"
+        : windspeedUnit === "knots"
+        ? "knots"
+        : "km/h";
+  },
+  changeDistance: function () {
+    const distanceUnit = this.weather.units.distance.current;
+    document.querySelector(".measure .distanceUnit").textContent =
+      distanceUnit === "meters" ? "m" : "km";
+  },
+  changePressure: function () {
+    const pressureUnit = this.weather.units.pressure.current;
+    document.querySelector(".measure .pressureUnit").textContent = pressureUnit;
+  },
+  changeDistance: function () {
+    const distanceUnit = this.weather.units.distance.current;
+    document.querySelector(".measure .distanceUnit").textContent =
+      distanceUnit === "meters" ? "m" : "km";
+  },
+};

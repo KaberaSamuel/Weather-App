@@ -108,11 +108,39 @@ const weatherData = {
   locations: [],
 
   units: {
-    temperature: "c",
-    wind: "km/h",
-    pressure: "mm",
-    precipitation: "mm",
-    distance: "km",
+    temperature: {
+      current: "",
+      celsius: "",
+      fahrenheit: "",
+    },
+    wind: {
+      current: "",
+      kmh: "",
+      ms: "",
+      knots: "",
+    },
+    pressure: {
+      current: "",
+      hpa: "",
+      inches: "",
+      kpa: "",
+      mm: "",
+    },
+    distance: {
+      current: "",
+      kilometers: "",
+      meters: "",
+    },
+    feelslike: {
+      current: "",
+      celsius: "",
+      fahrenheit: "",
+    },
+    precipitation: {
+      current: "",
+      millimeters: "",
+      inches: "",
+    },
   },
 };
 
