@@ -2,10 +2,14 @@
 .main {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: 45px 27% 62%;
+  grid-template-rows: 45px 26% 63%;
   align-content: space-between;
   background-color: var(--dark);
 }
+
+/* .main > * {
+  border: 2px solid red;
+} */
 
 .main > .header {
   display: flex;
@@ -78,18 +82,20 @@
   padding: 0 25px;
   text-align: left;
   text-transform: uppercase;
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--lightgray);
 }
 
 .main .grid .condition i {
   transform: translateY(-13px);
+  font-size: 0.7rem;
 }
 
 .main .grid .condition .description {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .main .grid .condition .measure {
@@ -106,8 +112,12 @@
   background-color: var(--dark);
 }
 
+/* .forecast > * {
+  border: 2px solid red;
+} */
+
 .today-forecast {
-  height: 30%;
+  height: 29%;
   background-color: var(--lightdark);
   border-radius: 15px;
   display: flex;
@@ -126,7 +136,12 @@
 
 .today-forecast .degrees {
   color: var(--lightwhite);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.today-forecast img {
+  width: 25px;
+  width: 25px;
 }
 
 .time-sections {
@@ -180,7 +195,7 @@
   display: flex;
   gap: 15px;
   justify-self: start;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   align-items: center;
 }
 

@@ -120,7 +120,6 @@ body > .weather > div:last-child {
 }
 
 .today-forecast {
-  /* height: 30%; */
   background-color: var(--dark);
   display: flex;
   flex-direction: column;
@@ -135,7 +134,7 @@ body > .weather > div:last-child {
 
 .today-forecast .degrees {
   color: var(--lightwhite);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .time-sections {
