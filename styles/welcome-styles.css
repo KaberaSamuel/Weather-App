@@ -30,7 +30,6 @@ main {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  /* font-size: 1rem; */
   font-weight: 600;
   color: var(--lightgray);
   background-color: var(--dark);
@@ -57,4 +56,45 @@ a {
 
 img {
   transform: rotate(10deg);
+}
+
+/* dealing responsiveness */
+@media (max-width: 500px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    font-weight: 600;
+    color: var(--lightgray);
+  }
+
+  main div {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightblue);
+    border-radius: 50%;
+  }
 }
