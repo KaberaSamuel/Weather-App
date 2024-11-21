@@ -1,3 +1,5 @@
+const isMobileScreen = window.innerWidth < 500;
+
 // updating air conditions
 function updateAirConditionsUI() {
   const conditions = JSON.parse(localStorage.weatherData).conditions;
@@ -21,10 +23,20 @@ function updateAirConditionsUI() {
   units.changeWindSpeed();
 }
 
-// function of showing respective weather elements on the UI and update data on the backend as well
+// UI for mobile devices
+function updateMobileUI() {}
+
+// function of showing respective weather elements on the UI
 function display() {
   updateCurrentCityUI();
-  updateTimeSectionsUI(6);
+  if (isMobileScreen) {
+    // removing search input
+    const main = document.querySelector(".main");
+    main.removeChild(main.children[0]);
+    updateTimeSectionsUI(3);
+  } else {
+    updateTimeSectionsUI(6);
+  }
   updateWeekForecastUI(7);
   updateAirConditionsUI();
 }

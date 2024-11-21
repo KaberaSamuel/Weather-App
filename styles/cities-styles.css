@@ -81,42 +81,56 @@ body > .weather > div:last-child {
 }
 
 .current-city {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0 15px;
-  padding-right: 30px;
+  padding: 15px 0;
+  display: grid;
+  grid-template-areas:
+    "city image"
+    "degrees image";
+  gap: 10px 0;
+  /* border: 1px solid green; */
 }
 
-.current-city .left {
+.current-city > * {
+  /* border: 1px solid red; */
   display: flex;
+  align-items: center;
+}
+
+.current-city .city {
+  grid-area: city;
   flex-direction: column;
-  gap: 10px;
-  text-align: left;
-  font-size: 0.8rem;
-  color: var(--lightgray);
+  justify-content: center;
+  align-items: start;
 }
 
-.current-city .large {
+.current-city .cityname {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--lightwhite);
   text-transform: capitalize;
-  margin-bottom: 2px;
+}
+
+.current-city .city p:last-child {
+  color: var(--lightgray);
+  letter-spacing: 0.05px;
 }
 
 .current-city .degrees {
+  grid-area: degrees;
+  justify-content: flex-start;
   font-size: 2rem;
   font-weight: 700;
   color: var(--lightwhite);
 }
 
-.current-city .right {
-  align-content: center;
+.current-city .image {
+  grid-area: image;
+  justify-content: center;
 }
 
 .current-city img {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
 }
 
 .today-forecast {
@@ -146,9 +160,9 @@ body > .weather > div:last-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 7px;
+  gap: 10px;
   align-items: center;
-  border-right: var(--lineborder);
+  border-right: 1px solid var(--linecolor);
 }
 
 .time-sections .section:last-child {

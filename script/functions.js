@@ -180,7 +180,7 @@ function updateCurrentCityUI() {
   const conditions = weather.conditions;
   const currentLocation = weather.locations.toReversed()[0];
 
-  const cityName = document.querySelector(" .current-city .large");
+  const cityName = document.querySelector(" .current-city .cityname");
   const rainChance = document.querySelector(".current-city .city span");
   const temperature = document.querySelector(".current-city .temp span");
   const img = document.querySelector(".current-city img");
@@ -193,20 +193,21 @@ function updateCurrentCityUI() {
 
 // updating time sections throught the day on UI
 function updateTimeSectionsUI(maxcount) {
-  let index = 0;
+  const timeSectionsElement = document.querySelector(".time-sections");
   const timeSectionsArray = Array.from(
     document.querySelectorAll(".time-sections .section")
   );
-  // console.log(timeSectionsArray);
   const daySections = JSON.parse(localStorage.weatherData).daySections;
 
-  while (index < maxcount) {
-    let section = timeSectionsArray[index];
-    section.querySelector("img").src = getImage(daySections[index].icon);
-    section.querySelector(".degrees span").textContent =
-      daySections[index].temp;
-    index++;
-  }
+  timeSectionsArray.forEach((element, index) => {
+    if (index < maxcount) {
+      element.querySelector("img").src = getImage(daySections[index].icon);
+      element.querySelector(".degrees span").textContent =
+        daySections[index].temp;
+    } else {
+      timeSectionsElement.removeChild(element);
+    }
+  });
 }
 
 // updating week forecast on UI

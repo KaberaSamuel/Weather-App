@@ -8,37 +8,51 @@
 }
 
 .current-city {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 50px;
-  padding-right: 90px;
+  padding: 0 20px;
+  padding-left: 40px;
+  display: grid;
+  grid-template-areas:
+    "city image"
+    "degrees image";
+  /* border: 1px solid green; */
 }
 
-.current-city .left {
+.current-city > * {
+  /* border: 1px solid red; */
   display: flex;
+  align-items: center;
+}
+
+.current-city .city {
+  grid-area: city;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-  font-size: 0.8rem;
-  color: var(--lightgray);
+  justify-content: center;
+  align-items: start;
 }
 
-.current-city .large {
+.current-city .cityname {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--lightwhite);
   text-transform: capitalize;
-  margin-bottom: 3px;
+}
+
+.current-city .city p:last-child {
+  color: var(--lightgray);
+  letter-spacing: 0.05px;
 }
 
 .current-city .degrees {
+  grid-area: degrees;
+  justify-content: flex-start;
   font-size: 2rem;
   font-weight: 700;
   color: var(--lightwhite);
 }
 
-.current-city .right {
-  align-content: center;
+.current-city .image {
+  grid-area: image;
+  justify-content: center;
 }
 
 .current-city img {
@@ -60,7 +74,7 @@
 }
 
 .today-forecast .header {
-  padding: 0 30px;
+  padding-left: 30px;
 }
 
 .today-forecast .degrees {
@@ -71,8 +85,6 @@
 .time-sections {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1px;
-  background-color: var(--linecolor);
 }
 
 .time-sections .section {
@@ -82,15 +94,20 @@
   justify-content: center;
   gap: 10px;
   align-items: center;
+  border-right: 1px solid var(--linecolor);
+}
+
+.time-sections .section:last-child {
+  border-right: none;
 }
 
 .air-conditions {
   background-color: var(--lightdark);
   border-radius: 15px;
-  padding: 0 30px;
+  padding: 15px 30px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -105,9 +122,11 @@
 .air-conditions .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.6rem;
   font-weight: 700;
   color: var(--lightgray);
+  /* border: 2px solid green; */
 }
 
 .air-conditions .grid {
@@ -190,4 +209,53 @@
 .week-forecast .day img {
   width: 30px;
   height: 30px;
+}
+
+/* dealing with responsiveness */
+@media (max-width: 500px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: auto;
+  }
+
+  .today-forecast {
+    display: block;
+    padding: 20px 10px 10px;
+  }
+
+  .today-forecast .header {
+    padding-left: 15px;
+    margin-bottom: 5px;
+  }
+
+  .time-sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px 0;
+  }
+
+  .current-city {
+    padding: 20px 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .current-city .city {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .air-conditions {
+    padding: 15px 25px 20px;
+    gap: 20px;
+  }
+
+  .week-forecast .day .weather {
+    gap: 10px;
+  }
 }
