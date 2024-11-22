@@ -14,6 +14,22 @@
   --lineborder: var(--linecolor) 1px solid;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border: 7px;
+  -webkit-border-radius: 7px;
+  background-color: var(-- dark);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 7px;
+  -webkit-border-radius: 7px;
+  background-color: var(--lightwhite);
+}
+
 body {
   font-size: 0.8rem;
   background-color: var(--dark);
@@ -32,25 +48,14 @@ body {
   overflow: auto;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  border: 7px;
-  -webkit-border-radius: 7px;
-  background-color: var(-- dark);
-}
-
-::-webkit-scrollbar-thumb {
-  border: 7px;
-  -webkit-border-radius: 7px;
-  background-color: var(--lightwhite);
-}
-
 body > * {
   background-color: var(--lightdark);
   border-radius: 20px;
+}
+
+body > section:last-child {
+  height: calc(100% - 55px);
+  align-self: end;
 }
 
 img {
@@ -121,12 +126,7 @@ input {
   color: var(--lightwhite);
 }
 
-body > section:last-child {
-  height: calc(100% - 55px);
-  align-self: end;
-}
-
-/* dealing of responsiveness */
+/* media queries */
 @media (max-width: 500px) {
   body {
     width: 100vw;
@@ -134,11 +134,17 @@ body > section:last-child {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     margin: 0;
-    padding: 20px;
+    padding: 15px;
     padding-bottom: 100px;
     overflow-x: hidden;
+    font-size: 1rem;
+  }
+
+  body > section:last-child {
+    height: auto;
+    align-self: stretch;
   }
 
   .side-nav {
@@ -146,10 +152,10 @@ body > section:last-child {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
     height: auto;
     width: 100vw;
-    padding: 15px 0;
+    padding: 17px 0;
     position: fixed;
     top: auto;
     left: 0;
@@ -161,15 +167,14 @@ body > section:last-child {
   }
 
   .side-nav i {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
   .side-nav div:first-child {
     margin-bottom: 0;
   }
 
-  body > section:last-child {
-    height: 80vh;
-    align-self: stretch;
+  a[href="settings.html"] {
+    border: 1px solid green;
   }
 }

@@ -39,4 +39,15 @@ function display() {
   updateConditionsUI();
 }
 
+// dealing with smaller screens
+function conditionsMobileUI() {
+  if (window.innerWidth < 500) {
+    const forecastElement = document.querySelector(".forecast");
+    const body = document.querySelector("body");
+
+    body.removeChild(forecastElement);
+  }
+}
+
 display();
+conditionsMobileUI();

@@ -23,9 +23,6 @@ function updateAirConditionsUI() {
   units.changeWindSpeed();
 }
 
-// UI for mobile devices
-function updateMobileUI() {}
-
 // function of showing respective weather elements on the UI
 function display() {
   updateCurrentCityUI();

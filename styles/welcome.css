@@ -65,20 +65,21 @@ img {
   }
 
   main {
+    height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 0;
     font-weight: 600;
     color: var(--lightgray);
+    padding: 10vh 0 15vh;
   }
 
   main div {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 15px;
   }
 
   img {
