@@ -23,7 +23,6 @@ async function getCoordinates(cityName) {
     const { lat, lon } = data[0];
     return [lat, lon];
   } catch (error) {
-    console.error("Error fetching data: ", error);
     return [40.712, 74.006];
   }
 }

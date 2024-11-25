@@ -9,15 +9,14 @@
 }
 
 .middle > .header {
-  height: 45px;
+  height: 50px;
 }
 
 .middle > div > .header {
   margin-bottom: 10px;
-  font-size: 1rem;
   font-weight: 700;
   padding-left: 10px;
-  /* border: 2px solid red; */
+  font-size: var(--largefontsize1);
 }
 
 .middle > div {
@@ -61,7 +60,7 @@ input {
   margin-bottom: 7px;
   color: var(--lightgray);
   text-transform: uppercase;
-  font-size: 0.6rem;
+  font-size: var(--smallfontsize1);
   font-weight: 700;
 }
 
@@ -78,7 +77,7 @@ input {
 .measure p {
   flex: 1 1 auto;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: var(--smallfontsize2);
 }
 
 .measure.border p {
@@ -90,7 +89,6 @@ input {
   background-color: var(--measurebg);
   border: none;
   height: 80%;
-  line-height: 170%;
 }
 
 .measure p:last-child {
@@ -106,7 +104,6 @@ input {
 .toggle-parent {
   display: flex;
   justify-content: space-between;
-  /* border: 2px solid; */
 }
 
 .toggle-parent .content {
@@ -118,6 +115,7 @@ input {
   font-weight: 700;
   color: var(--lightwhite);
   margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 .time,
@@ -174,7 +172,7 @@ input {
 
 .advanced > p:first-child {
   color: var(--lightwhite);
-  font-size: 1.4rem;
+  font-size: var(--largefontsize2);
   font-weight: 700;
   padding-bottom: 15px;
   margin-bottom: 15px;
@@ -183,14 +181,13 @@ input {
 
 .aside .header {
   color: var(--lightwhite);
-  font-size: 1rem;
+  font-size: var(--largefontsize1);
   font-weight: 700;
 }
 
 ul {
   padding-left: 20px;
   margin: 20px 0;
-  /* border: 2px solid; */
 }
 
 .subscribe {

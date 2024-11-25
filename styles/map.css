@@ -4,7 +4,7 @@
 }
 
 .main > div:first-child {
-  height: 45px;
+  height: 50px;
   margin-bottom: 20px;
 }
 
@@ -35,7 +35,7 @@
 .leaflet-popup-content-wrapper {
   color: var(--lightwhite) !important;
   padding: 10px 20px !important;
-  font-size: 0.8rem;
+  font-size: var(--smallfontsize2);
 }
 
 .popup {
@@ -65,25 +65,29 @@
 /* cities */
 .cities .city {
   background-color: var(--lightdark);
-  border-radius: 20px;
   display: flex;
-  padding: 20px 30px;
+  padding: 20px 35px;
   text-align: left;
-  margin-bottom: 10px;
-  font-size: 0.6rem;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  font-size: var(--generalfontsize);
 }
 
 .cities .city img {
-  width: 40px;
-  height: 40px;
-  margin-right: 30px;
+  width: 60px;
+  height: 60px;
+  margin-right: 35px;
+}
+
+.cities .city .description i {
+  display: none;
 }
 
 .cities .city .degrees {
   text-align: right;
   flex: 1 1 auto;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--largefontsize1);
 }
 
 .cities .city .description {
@@ -95,23 +99,7 @@
 
 .cities .city .description .city-name {
   font-weight: 700;
-  font-size: 1rem;
-  display: flex;
-  gap: 20px;
-  align-items: baseline;
   color: var(--lightwhite);
-}
-
-.cities .city .description i {
-  opacity: 0;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--lightwhite);
-}
-
-.main,
-.cities {
-  background-color: var(--dark);
 }
 
 .main > div:first-child {
@@ -119,39 +107,22 @@
   margin-bottom: 15px;
 }
 
-/* cities */
-.cities .city {
-  background-color: var(--lightdark);
-  border-radius: 20px;
-  display: flex;
-  padding: 20px 30px;
-  text-align: left;
-  margin-bottom: 10px;
+.main,
+.cities {
+  background-color: var(--dark);
 }
 
-.cities .city img {
-  width: 40px;
-  height: 40px;
-  margin-right: 30px;
-}
+@media (max-width: 500px) {
+  .main {
+    padding: 0 5px;
+  }
 
-.cities .city .degrees {
-  text-align: right;
-  flex: 1 1 auto;
-  font-weight: 600;
-  font-size: 1rem;
-}
+  #map {
+    z-index: 0;
+    height: 80vh;
+  }
 
-.cities .city .description {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--lightgray);
-  font-size: 0.8rem;
-}
-
-.cities .city .description .city-name {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--lightwhite);
+  .cities {
+    display: none;
+  }
 }
