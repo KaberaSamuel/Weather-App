@@ -32,15 +32,8 @@ function updateConditionsUI() {
   units.changeDistance();
 }
 
-function display() {
-  updateCurrentCityUI();
-  updateTimeSectionsUI(3);
-  updateWeekForecastUI(7);
-  updateConditionsUI();
-}
-
 // dealing with smaller screens
-function conditionsMobileUI() {
+function conditionsSmallScreenUI() {
   if (window.innerWidth < 500) {
     const forecastElement = document.querySelector(".forecast");
     const body = document.querySelector("body");
@@ -49,5 +42,13 @@ function conditionsMobileUI() {
   }
 }
 
+function display() {
+  updateCurrentCityUI();
+  updateTimeSectionsUI(3);
+  updateWeekForecastUI(7);
+  updateConditionsUI();
+  conditionsSmallScreenUI();
+  smallScreenSidebar();
+}
+
 display();
-conditionsMobileUI();

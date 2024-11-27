@@ -165,11 +165,11 @@ function getCity() {
             const city = result.features[0].properties.city;
             resolve(city);
           })
-          .catch(() => resolve("newyork"));
+          .catch(() => resolve("madrid"));
       },
       () => {
         // when user refuses to track his/her location
-        resolve("newyork");
+        resolve("madrid");
       }
     );
   });

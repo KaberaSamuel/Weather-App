@@ -28,7 +28,6 @@
   padding: 20px;
   border-radius: 20px;
   background-color: var(--lightdark);
-  /* border: 2px solid red; */
 }
 
 .middle > div:first-child {
@@ -71,13 +70,14 @@ input {
   border-radius: 10px;
   height: 30px;
   padding: 0 3px;
-  /* border: 2px solid; */
 }
 
 .measure p {
   flex: 1 1 auto;
-  text-align: center;
   font-size: var(--smallfontsize2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .measure.border p {
@@ -129,12 +129,11 @@ input {
 
 .toggle {
   background-color: var(--lightblue);
-  height: 15px;
-  width: 30px;
+  padding: 3px !important;
+  width: 35px;
   border-radius: 10px;
   align-self: start;
   padding: 0;
-  padding-left: 3px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -142,14 +141,12 @@ input {
 }
 
 .toggle-parent.on .toggle {
-  padding: 0;
-  padding-right: 3px;
   justify-content: flex-end;
 }
 
-.toggle p {
-  height: 10px !important;
-  width: 10px !important;
+.toggle div {
+  height: 11px !important;
+  width: 11px !important;
   border-radius: 50%;
   background-color: var(--lightwhite);
 }

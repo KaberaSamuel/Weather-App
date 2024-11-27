@@ -69,8 +69,9 @@ function showMap() {
 }
 
 function display() {
-  displayCities();
+  displayCities("map");
   showMap();
 }
 
 display();
+smallScreenSidebar();

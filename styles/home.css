@@ -88,20 +88,6 @@
     height: auto;
   }
 
-  .current-city {
-    padding: 20px 0 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .current-city .city {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .air-conditions {
     font-size: var(--generalfontsize);
     padding: 15px 25px 20px;

@@ -178,3 +178,5 @@ function customizePrecipitationUnits(e) {
   checkBorder(windUnitsParent);
   checkBorder(pressureUnitsParent);
 })();
+
+smallScreenSidebar();

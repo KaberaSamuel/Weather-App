@@ -148,7 +148,7 @@ function updateUnits(weatherObject, fetchedData) {
 }
 
 // function for updating weather tracker as a whole by returning an weather data object that will be stored on the local storage
-function updateWeatherTracker(fetchedData, location) {
+function getUpdatedData(fetchedData, location) {
   const weatherData = JSON.parse(localStorage.weatherData);
   updateUnits(weatherData, fetchedData);
   updateConditions(weatherData, fetchedData);
@@ -163,15 +163,14 @@ function updateWeatherTracker(fetchedData, location) {
 async function getWeatherData(location) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=4GGPTYXEW5G2EF9FQJUVV9KX3&contentType=json`;
 
-  let result = await fetch(url, { mode: "cors" });
-  result = await result.json();
-
-  const updatedWeather = updateWeatherTracker(result, location);
-
-  localStorage.setItem("weatherData", JSON.stringify(updatedWeather));
-
-  console.log(JSON.parse(localStorage.weatherData));
-  console.log("done");
+  const response = await fetch(url, { mode: "cors" });
+  if (response.status >= 200 && response.status < 300) {
+    const result = await response.json();
+    const updatedWeather = getUpdatedData(result, location);
+    localStorage.setItem("weatherData", JSON.stringify(updatedWeather));
+  } else {
+    alert("Wrong location, try again");
+  }
 }
 
 // function for updating currect location on UI
@@ -232,33 +231,44 @@ function updateWeekForecastUI(maxcount) {
 }
 
 // function for display cities in order they were searched it will be called  in pages where it is needed
-function displayCities() {
+function displayCities(page) {
   const locations = JSON.parse(localStorage.weatherData).locations.toReversed();
   const citiesUI = document.querySelector(".cities");
   citiesUI.innerHTML = "";
 
   locations.forEach((city) => {
-    let htmlString = `
-          <img src="../images/${city.icon}.png" alt="weather" />
+    const htmlString = `
+      <div class="city">
+        <img src="../images/${city.icon}.png" alt="weather" />
 
-          <div class="description">
-            <p class="city-name">
-              ${city.name}
-              <i class="fa-brands fa-searchengin"></i>
-            </p>
-            <p>${city.time}</p>
+        <div class="description">
+          <div class="city-name">
+            <p>${city.name}</p>
+            <i class="fa-solid fa-location-arrow"></i>
           </div>
+          <p>${city.time}</p>
+        </div>
 
-          <p class="degrees">${city.temperature}&deg;</p>
+        <p class="degrees">${city.temperature}&deg;</p>
+      </div>
+
+      ${
+        page === "cities"
+          ? `<div class="delete">
+   <i class="fa-solid fa-xmark"></i>
+      </div>`
+          : ""
+      }
+
     `;
-    const cityElement = document.createElement("div");
-    cityElement.setAttribute("class", "city");
-    cityElement.innerHTML = htmlString;
 
-    citiesUI.appendChild(cityElement);
+    const div = document.createElement("div");
+    div.setAttribute("class", "city-container");
+    div.innerHTML = htmlString;
+    citiesUI.appendChild(div);
 
     // using icon to search for cities
-    const searchIcon = cityElement.querySelector("i");
+    const searchIcon = div.querySelector("i");
     searchIcon.addEventListener("click", (e) => {
       const url = `https://www.google.com/search?q=${encodeURIComponent(
         city.name
@@ -276,6 +286,19 @@ function getImage(icon) {
 // funtion for formatting numbers to always start with zeros
 function formatNumber(number) {
   return number < 10 ? "0" + number : number;
+}
+
+// function for customizing sidebar for smaller screen devices
+function smallScreenSidebar() {
+  if (window.innerWidth < 500) {
+    const sidebar = document.querySelector(".side-nav");
+    sidebar.removeChild(sidebar.children[0]);
+    const paraElements = Array.from(document.querySelectorAll(".side-nav p"));
+    paraElements.forEach((element) => {
+      element.parentElement.removeChild(element);
+      console.log(element);
+    });
+  }
 }
 
 // updating on location search by firstly checking input field is available
