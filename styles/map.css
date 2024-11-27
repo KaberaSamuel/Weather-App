@@ -113,13 +113,17 @@
 }
 
 @media (max-width: 500px) {
+  body {
+    padding-bottom: 50px;
+  }
+
   .main {
     padding: 0 5px;
   }
 
   #map {
     z-index: 0;
-    height: 80vh;
+    height: 75vh;
   }
 
   .cities {

@@ -327,12 +327,12 @@ input {
     margin-bottom: 0;
   }
 
-  a[href="settings.html"] {
-    border: 2px solid green;
-  }
-
   .current-city img {
     width: 120px;
     height: 120px;
+  }
+
+  a[href="settings.html"] {
+    border: 2px solid green;
   }
 }
