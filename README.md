@@ -2,6 +2,4 @@
 
 This project is about creating a simple web app with added features of map and forecasts
 
-To use it just clone the repository and open index html file in your browser and you are done
-
 Live at: https://kaberasamuel.github.io/Weather-App/html/index.html
