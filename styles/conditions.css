@@ -31,7 +31,7 @@
 /* grid styles */
 .main .grid {
   display: grid;
-  gap: 15px 20px;
+  gap: 10px 15px;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -40,7 +40,7 @@
   background-color: var(--lightdark);
   display: flex;
   gap: 20px;
-  padding: 20px 30px;
+  padding: 15px 25px;
   text-align: left;
   text-transform: uppercase;
   font-weight: 700;
@@ -49,7 +49,7 @@
 .main .grid .condition .description {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   font-size: var(--largefontsize1);
 }
 

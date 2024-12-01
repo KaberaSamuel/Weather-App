@@ -12,14 +12,14 @@
   --lightblue: rgb(0, 110, 230);
   --lightgray: rgb(160, 160, 160);
   --lineborder: var(--linecolor) 1px solid;
-  --smallfontsize1: 0.7rem;
-  --smallfontsize2: 0.8rem;
-  --smallfontsize3: 0.9rem;
-  --generalfontsize: 1rem;
-  --largefontsize1: 1.2rem;
-  --largefontsize2: 1.5rem;
-  --largefontsize3: 2rem;
-  --largefontsize4: 1.7rem;
+  --smallfontsize1: 0.6rem;
+  --smallfontsize2: 0.7rem;
+  --smallfontsize3: 0.8rem;
+  --generalfontsize: 0.9rem;
+  --largefontsize1: 1.1rem;
+  --largefontsize2: 1.4rem;
+  --largefontsize3: 1.9rem;
+  --largefontsize4: 1.6rem;
 }
 
 ::-webkit-scrollbar {
@@ -66,8 +66,8 @@ body > section:last-child {
 }
 
 img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 i {
@@ -85,10 +85,10 @@ a {
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  gap: 40px;
+  gap: 30px;
   align-items: center;
   color: var(--lightgray);
-  font-size: var(--smallfontsize2);
+  font-size: var(--smallfontsize3);
   font-weight: 700;
   position: fixed;
   top: 15px;
@@ -182,16 +182,16 @@ input {
 }
 
 .current-city img {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
 }
 
 /* current day forecast styles */
 .today-forecast {
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
-  gap: 20px;
+  padding: 15px 0;
+  gap: 15px;
   text-align: left;
   color: var(--lightgray);
   font-weight: 700;
@@ -202,7 +202,7 @@ input {
 }
 
 .today-forecast .header {
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .today-forecast .degrees {
