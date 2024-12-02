@@ -296,7 +296,6 @@ function smallScreenSidebar() {
     const paraElements = Array.from(document.querySelectorAll(".side-nav p"));
     paraElements.forEach((element) => {
       element.parentElement.removeChild(element);
-      console.log(element);
     });
   }
 }
