@@ -1,16 +1,3 @@
-displayCities();
-
-function showMap() {
-  const map = L.map("map").setView([0, 0], 13);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }).addTo(map);
-}
-
-showMap();
-
 let map = L.map("map");
 
 // function that will return an array of coordinates of a given city name inorder to mark it on the map
