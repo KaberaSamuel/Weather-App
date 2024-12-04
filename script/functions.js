@@ -170,6 +170,29 @@ async function getWeatherData(location) {
     localStorage.setItem("weatherData", JSON.stringify(updatedWeather));
   } else {
     alert("Wrong location, try again");
+    removeLoader();
+  }
+}
+
+// loading display when promises haven't been resolved yet
+function displayLoader() {
+  const body = document.querySelector("body");
+  const loaderDiv = document.createElement("div");
+  loaderDiv.id = "loader";
+  loaderDiv.innerHTML = `
+  <div class="loading-text"> Fetching Data <span class="dots"></span></div>
+  `;
+
+  body.appendChild(loaderDiv);
+}
+
+// removing loading display when the promise is resolved
+function removeLoader() {
+  const body = document.querySelector("body");
+  const loaderElement = body.querySelector("#loader");
+
+  if (loaderElement) {
+    body.removeChild(loaderElement);
   }
 }
 
@@ -302,6 +325,8 @@ function smallScreenSidebar() {
 
 // updating on location search by firstly checking input field is available
 const input = document.querySelector("input");
+const hasMap = document.querySelector("#map");
+const hasSettings = document.querySelector("#settings");
 if (input) {
   input.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -309,9 +334,19 @@ if (input) {
       input.value = "";
       location = location.replaceAll(" ", "");
       location = location.toLowerCase();
-      getWeatherData(location).then(() => {
-        display();
-      });
+
+      // checking if the current page is map or settings page because they won't show display loading screen when you fetch data
+      if (hasMap || hasSettings) {
+        getWeatherData(location).then(() => {
+          display();
+        });
+      } else {
+        displayLoader();
+        getWeatherData(location).then(() => {
+          removeLoader();
+          display();
+        });
+      }
     }
   });
 }

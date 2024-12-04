@@ -1,8 +1,6 @@
 // dealing small sreen of the welcome page
-function mobileUI() {
+(function mobileUI() {
   if (window.innerWidth < 500) {
-    console.log("small screen");
-
     const body = document.querySelector("body");
     body.innerHTML = "";
     const main = document.createElement("main");
@@ -14,11 +12,20 @@ function mobileUI() {
         <p>Weather App</p>
       </div>
 
-      <a href="../html/home.html"><i class="fa-solid fa-arrow-right"></i></a>
+      <div class="anchor"><i class="fa-solid fa-arrow-right"></i></div>
     `;
 
     body.appendChild(main);
   }
-}
+})();
 
-mobileUI(6);
+const getStartedButton = document.querySelector(".anchor");
+
+getStartedButton.addEventListener("click", () => {
+  hasClickedTheButton = true;
+  if (!isfetchingDataComplete) {
+    displayLoader();
+  } else {
+    window.location.href = "../html/home.html";
+  }
+});

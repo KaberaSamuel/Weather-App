@@ -9,7 +9,7 @@ async function getCoordinates(cityName) {
     const data = await response.json();
     const { lat, lon } = data[0];
     return [lat, lon];
-  } catch (error) {
+  } catch {
     return [40.712, 74.006];
   }
 }
