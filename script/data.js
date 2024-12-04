@@ -1,8 +1,7 @@
 "use strict";
 
-const getStartedButton = document.querySelector("a");
-// pausing pointer events on anchor tag to wait for server to fetch data
-getStartedButton.style.pointerEvents = "none";
+let isfetchingDataComplete = false;
+let hasClickedTheButton = false;
 
 // dealing with local storage
 localStorage.clear();
@@ -177,7 +176,10 @@ function getCity() {
 
 getCity().then((city) => {
   city = city.toLowerCase();
-  getWeatherData(city).then(
-    () => (getStartedButton.style.pointerEvents = "all")
-  );
+  getWeatherData(city).then(() => {
+    isfetchingDataComplete = true;
+    if (hasClickedTheButton) {
+      window.location.href = "../html/home.html";
+    }
+  });
 });
