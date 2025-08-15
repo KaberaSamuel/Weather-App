@@ -3,7 +3,6 @@
 let isfetchingDataComplete = false;
 let hasClickedTheButton = false;
 
-// dealing with local storage
 localStorage.clear();
 
 const weatherData = {

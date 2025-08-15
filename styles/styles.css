@@ -276,7 +276,7 @@ input {
   letter-spacing: 0.08rem;
 }
 
-/* dealing with loader display for when promises are being resolved */
+/* Loader styles */
 #loader {
   position: fixed;
   inset: 0;
