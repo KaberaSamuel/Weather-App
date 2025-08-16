@@ -1,4 +1,4 @@
-const isMobileScreen = window.innerWidth < 500;
+const isMobileScreen = window.innerWidth < 700;
 
 // updating air conditions
 function updateAirConditionsUI() {

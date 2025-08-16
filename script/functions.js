@@ -313,7 +313,7 @@ function formatNumber(number) {
 
 // function for customizing sidebar for smaller screen devices
 function smallScreenSidebar() {
-  if (window.innerWidth < 500) {
+  if (window.innerWidth < 700) {
     const sidebar = document.querySelector(".side-nav");
     sidebar.removeChild(sidebar.children[0]);
     const paraElements = Array.from(document.querySelectorAll(".side-nav p"));
