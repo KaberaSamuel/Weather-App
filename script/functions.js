@@ -311,17 +311,7 @@ function formatNumber(number) {
   return number < 10 ? "0" + number : number;
 }
 
-// function for customizing sidebar for smaller screen devices
-function smallScreenSidebar() {
-  if (window.innerWidth < 700) {
-    const sidebar = document.querySelector(".side-nav");
-    sidebar.removeChild(sidebar.children[0]);
-    const paraElements = Array.from(document.querySelectorAll(".side-nav p"));
-    paraElements.forEach((element) => {
-      element.parentElement.removeChild(element);
-    });
-  }
-}
+
 
 // updating on location search by firstly checking input field is available
 const input = document.querySelector("input");

@@ -48,7 +48,6 @@ function display() {
   updateWeekForecastUI(7);
   updateConditionsUI();
   conditionsSmallScreenUI();
-  smallScreenSidebar();
 }
 
 display();

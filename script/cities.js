@@ -52,4 +52,4 @@ if (isSmallScreen) {
 }
 
 display();
-smallScreenSidebar();
+

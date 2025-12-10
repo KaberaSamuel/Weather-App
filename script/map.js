@@ -61,4 +61,4 @@ function display() {
 }
 
 display();
-smallScreenSidebar();
+

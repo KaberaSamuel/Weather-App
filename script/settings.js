@@ -179,4 +179,4 @@ function customizePrecipitationUnits(e) {
   checkBorder(pressureUnitsParent);
 })();
 
-smallScreenSidebar();
+

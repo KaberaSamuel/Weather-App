@@ -94,6 +94,7 @@ a {
   top: 15px;
   bottom: 15px;
   left: 20px;
+ 
 }
 
 .side-nav .active,
@@ -317,6 +318,15 @@ input {
 }
 
 /* media queries */
+@media (max-width: 700px) {
+  .side-nav > div:first-child {
+    display: none;
+  }
+  .side-nav p {
+    display: none;
+  }
+}
+
 @media (max-width: 500px) {
   body {
     width: 100vw;

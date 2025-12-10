@@ -39,4 +39,4 @@ function display() {
 }
 
 display();
-smallScreenSidebar();
+
