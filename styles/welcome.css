@@ -54,7 +54,7 @@ main img {
   background-color: var(--lightblue);
   border-radius: 15px;
   font-size: var(--generalfontsize);
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   font-weight: 700;
 }
 
