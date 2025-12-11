@@ -19,166 +19,202 @@
   </head>
 
   <body>
-    <script src="../script/sidebar.js" defer></script>
-
-    <section class="main">
-      <div>
-        <input type="text" placeholder="Search for cities" />
+    <section class="side-nav">
+      <div class="logo">
+        <a href="home.html">
+          <img src="../images/umbrella.png" />
+        </a>
       </div>
 
-      <div class="cities">
-        <div class="city-container">
-          <div class="city">
-            <img src="../images/sun.png" alt="weather" />
+      <div class="nav-item">
+        <a href="home.html">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+          <p>Weather</p>
+        </a>
+      </div>
 
-            <div class="description">
-              <p class="city-name">
-                Madrid
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-              </p>
-              <p>10:23</p>
-            </div>
+      <div class="active nav-item">
+        <a href="cities.html">
+          <i class="fa-solid fa-list-ul"></i>
+          <p>Cities</p>
+        </a>
+      </div>
 
-            <p class="degrees">37&deg;</p>
-          </div>
+      <div class="nav-item">
+        <a href="map.html">
+          <i class="fa-solid fa-map"></i>
+          <p>Map</p>
+        </a>
+      </div>
 
-          <div class="delete">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-
-        <div class="city-container">
-          <div class="city">
-            <img src="../images/rain.png" alt="weather" />
-
-            <div class="description">
-              <p class="city-name">
-                Vienna
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-              </p>
-              <p>11:54</p>
-            </div>
-
-            <p class="degrees">19&deg;</p>
-          </div>
-
-          <div class="delete">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-
-        <div class="city-container">
-          <div class="city">
-            <img src="../images/sun.png" alt="weather" />
-
-            <div class="description">
-              <p class="city-name">
-                Madrid
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-              </p>
-              <p>4:21</p>
-            </div>
-
-            <p class="degrees">37&deg;</p>
-          </div>
-
-          <div class="delete">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-
-        <div class="city-container">
-          <div class="city">
-            <img src="../images/cloudy.png" alt="weather" />
-
-            <div class="description">
-              <p class="city-name">
-                Athens
-                <i class="fa-solid fa-magnifying-glass-location"></i>
-              </p>
-              <p>9:30</p>
-            </div>
-
-            <p class="degrees">21&deg;</p>
-          </div>
-
-          <div class="delete">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
+      <div class="nav-item">
+        <a href="settings.html">
+          <i class="fa-solid fa-sliders"></i>
+          <p>Settings</p>
+        </a>
       </div>
     </section>
 
-    <section class="forecast">
-      <div class="current-city">
-        <div class="city">
-          <p class="cityname">Madrid</p>
-          <p>Chance of rain: <span class="dom">0</span>%</p>
+    <main>
+      <section class="main">
+        <div class="search-container">
+          <input type="text" placeholder="Search for cities" />
         </div>
 
-        <div class="image icon">
-          <img src="../images/sun.png" />
-        </div>
+        <div class="cities">
+          <div class="city-container">
+            <div class="city">
+              <img src="../images/sun.png" alt="weather" />
 
-        <div class="temp">
-          <p class="degrees"><span class="dom">39</span>&deg;</p>
-        </div>
-      </div>
+              <div class="description">
+                <p class="city-name">
+                  Madrid
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                </p>
+                <p>10:23</p>
+              </div>
 
-      <div class="today-forecast">
-        <p class="header">TODAY'S FORECAST</p>
+              <p class="degrees">37&deg;</p>
+            </div>
 
-        <div class="time-sections">
-          <div class="section six-am">
-            <p>6:00 AM</p>
-            <img src="../images/rain.png" alt="weather" />
-            <p class="degrees"><span>25</span>&deg;</p>
+            <div class="delete">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
           </div>
 
-          <div class="section nine-am">
-            <p>9:00 AM</p>
-            <img src="../images/cloudy.png" alt="weather" />
-            <p class="degrees"><span>8</span>&deg;</p>
+          <div class="city-container">
+            <div class="city">
+              <img src="../images/rain.png" alt="weather" />
+
+              <div class="description">
+                <p class="city-name">
+                  Vienna
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                </p>
+                <p>11:54</p>
+              </div>
+
+              <p class="degrees">19&deg;</p>
+            </div>
+
+            <div class="delete">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
           </div>
 
-          <div class="section twelve-pm">
-            <p>12:00 PM</p>
-            <img src="../images/cloudy.png" alt="weather" />
-            <p class="degrees"><span>28</span>&deg;</p>
+          <div class="city-container">
+            <div class="city">
+              <img src="../images/sun.png" alt="weather" />
+
+              <div class="description">
+                <p class="city-name">
+                  Madrid
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                </p>
+                <p>4:21</p>
+              </div>
+
+              <p class="degrees">37&deg;</p>
+            </div>
+
+            <div class="delete">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+
+          <div class="city-container">
+            <div class="city">
+              <img src="../images/cloudy.png" alt="weather" />
+
+              <div class="description">
+                <p class="city-name">
+                  Athens
+                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                </p>
+                <p>9:30</p>
+              </div>
+
+              <p class="degrees">21&deg;</p>
+            </div>
+
+            <div class="delete">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="week-forecast">
-        <div class="header">3-DAY FORECAST</div>
-
-        <div class="day day-1">
-          <p>Today</p>
-          <div class="weather">
-            <img src="../images/sun.png" alt="weather" />
-            <p>Sunny</p>
+      <section class="forecast">
+        <div class="current-city">
+          <div class="city">
+            <p class="cityname">Madrid</p>
+            <p>Chance of rain: <span class="dom">0</span>%</p>
           </div>
-          <p><span>36</span>/22</p>
+
+          <div class="image icon">
+            <img src="../images/sun.png" />
+          </div>
+
+          <div class="temp">
+            <p class="degrees"><span class="dom">39</span>&deg;</p>
+          </div>
         </div>
 
-        <div class="day day-2">
-          <p>Tues</p>
-          <div class="weather">
-            <img src="../images/sun.png" alt="weather" />
-            <p>Sunny</p>
+        <div class="today-forecast">
+          <p class="header">TODAY'S FORECAST</p>
+
+          <div class="time-sections">
+            <div class="section six-am">
+              <p>6:00 AM</p>
+              <img src="../images/rain.png" alt="weather" />
+              <p class="degrees"><span>25</span>&deg;</p>
+            </div>
+
+            <div class="section nine-am">
+              <p>9:00 AM</p>
+              <img src="../images/cloudy.png" alt="weather" />
+              <p class="degrees"><span>8</span>&deg;</p>
+            </div>
+
+            <div class="section twelve-pm">
+              <p>12:00 PM</p>
+              <img src="../images/cloudy.png" alt="weather" />
+              <p class="degrees"><span>28</span>&deg;</p>
+            </div>
           </div>
-          <p><span>37</span>/21</p>
         </div>
 
-        <div class="day day-3">
-          <p>Wed</p>
-          <div class="weather">
-            <img src="../images/stormy.png" alt="weather" />
-            <p>Stormy</p>
+        <div class="week-forecast">
+          <div class="header">3-DAY FORECAST</div>
+
+          <div class="day day-1">
+            <p>Today</p>
+            <div class="weather">
+              <img src="../images/sun.png" alt="weather" />
+              <p>Sunny</p>
+            </div>
+            <p><span>36</span>/22</p>
           </div>
-          <p><span>37</span>/21</p>
+
+          <div class="day day-2">
+            <p>Tues</p>
+            <div class="weather">
+              <img src="../images/sun.png" alt="weather" />
+              <p>Sunny</p>
+            </div>
+            <p><span>37</span>/21</p>
+          </div>
+
+          <div class="day day-3">
+            <p>Wed</p>
+            <div class="weather">
+              <img src="../images/stormy.png" alt="weather" />
+              <p>Stormy</p>
+            </div>
+            <p><span>37</span>/21</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   </body>
 </html>

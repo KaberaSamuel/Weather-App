@@ -16,6 +16,7 @@ aside {
   align-items: center;
   width: 50%;
   border-radius: 30px;
+  background-color: var(--lightdark);
 }
 
 aside img {
@@ -23,13 +24,13 @@ aside img {
   height: 300px;
 }
 
-main {
+body main {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
   font-weight: 600;
   color: var(--lightgray);
   background-color: var(--dark);
@@ -48,25 +49,27 @@ main img {
 }
 
 .anchor {
-  padding: 10px 15px;
+  padding: 10px 20px;
   color: var(--lightwhite);
   background-color: var(--lightblue);
   border-radius: 15px;
-  font-size: var(--largefontsize1);
+  font-size: var(--generalfontsize);
+  letter-spacing: 0.1rem;
+  font-weight: 700;
 }
 
 img {
   transform: rotate(10deg);
 }
 
-/* dealing responsiveness */
-@media (max-width: 500px) {
+/* responsive design */
+@media (max-width: 768px) {
   body {
     font-size: 1.2rem;
+    padding-bottom: 40px !important;
   }
 
-  main {
-    height: 60vh;
+  body main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,11 +79,11 @@ img {
     padding: 10vh 0 15vh;
   }
 
-  main div {
+  main .title {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
   }
 
   img {

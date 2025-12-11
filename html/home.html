@@ -19,170 +19,206 @@
   </head>
 
   <body>
-    <script src="../script/sidebar.js" defer></script>
-
-    <section class="main">
-      <div>
-        <input type="text" placeholder="Search for cities" />
+    <section class="side-nav">
+      <div class="logo">
+        <a href="home.html">
+          <img src="../images/umbrella.png" />
+        </a>
       </div>
 
-      <div class="current-city">
-        <div class="city">
-          <p class="cityname">Madrid</p>
-          <p>Chance of rain: <span class="dom">0</span>%</p>
-        </div>
-
-        <div class="image icon">
-          <img src="../images/sun.png" />
-        </div>
-
-        <div class="temp">
-          <p class="degrees"><span class="dom">39</span>&deg;</p>
-        </div>
+      <div class="active nav-item">
+        <a href="home.html">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+          <p>Weather</p>
+        </a>
       </div>
 
-      <div class="today-forecast">
-        <p class="header">TODAY'S FORECAST</p>
+      <div class="nav-item">
+        <a href="cities.html">
+          <i class="fa-solid fa-list-ul"></i>
+          <p>Cities</p>
+        </a>
+      </div>
 
-        <div class="time-sections">
-          <div class="section six-am">
-            <p>6:00 AM</p>
-            <img src="../images/rain.png" alt="weather" />
-            <p class="degrees"><span>25</span>&deg;</p>
+      <div class="nav-item">
+        <a href="map.html">
+          <i class="fa-solid fa-map"></i>
+          <p>Map</p>
+        </a>
+      </div>
+
+      <div class="nav-item">
+        <a href="settings.html">
+          <i class="fa-solid fa-sliders"></i>
+          <p>Settings</p>
+        </a>
+      </div>
+    </section>
+
+    <main>
+      <section class="main">
+        <div class="search-container">
+          <input type="text" placeholder="Search for cities" />
+        </div>
+
+        <div class="current-city">
+          <div class="city">
+            <p class="cityname">Madrid</p>
+            <p>Chance of rain: <span class="dom">0</span>%</p>
           </div>
 
-          <div class="section nine-am">
-            <p>9:00 AM</p>
+          <div class="image icon">
+            <img src="../images/sun.png" />
+          </div>
+
+          <div class="temp">
+            <p class="degrees"><span class="dom">39</span>&deg;</p>
+          </div>
+        </div>
+
+        <div class="today-forecast">
+          <p class="header">TODAY'S FORECAST</p>
+
+          <div class="time-sections">
+            <div class="section six-am">
+              <p>6:00 AM</p>
+              <img src="../images/rain.png" alt="weather" />
+              <p class="degrees"><span>25</span>&deg;</p>
+            </div>
+
+            <div class="section nine-am">
+              <p>9:00 AM</p>
+              <img src="../images/cloudy.png" alt="weather" />
+              <p class="degrees"><span>8</span>&deg;</p>
+            </div>
+
+            <div class="section twelve-pm">
+              <p>12:00 PM</p>
+              <img src="../images/clear-day.png" alt="weather" />
+              <p class="degrees"><span>17</span>&deg;</p>
+            </div>
+
+            <div class="section three-pm">
+              <p>3:00 PM</p>
+              <img src="../images/sun.png" alt="weather" />
+              <p class="degrees"><span>31</span>&deg;</p>
+            </div>
+
+            <div class="section six-pm">
+              <p>6:00 PM</p>
+              <img src="../images/sun.png" alt="weather" />
+              <p class="degrees"><span>28</span>&deg;</p>
+            </div>
+
+            <div class="section nine-pm">
+              <p>9:00 PM</p>
+              <img src="../images/clear-night.png" alt="weather" />
+              <p class="degrees"><span>14</span>&deg;</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="air-conditions">
+          <div class="header">
+            <p>AIR CONDITIONS</p>
+            <a href="conditions.html">See more</a>
+          </div>
+
+          <div class="grid">
+            <div class="condition">
+              <i class="fa-solid fa-temperature-half"></i>
+              <p class="description">Reel feel</p>
+              <p class="measure"><span>30</span>&deg;</p>
+            </div>
+
+            <div class="condition">
+              <i class="fa-solid fa-wind"></i>
+              <p class="description">Wind</p>
+              <p class="measure">
+                <span>0.2</span> <span class="windUnit">km/h</span>
+              </p>
+            </div>
+
+            <div class="condition">
+              <i class="fa-solid fa-droplet"></i>
+              <p class="description">Chance of Rain</p>
+              <p class="measure"><span>0</span>%</p>
+            </div>
+
+            <div class="condition">
+              <i class="fa-solid fa-sun"></i>
+              <p class="description">UV index</p>
+              <p class="measure"><span>3</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="week-forecast right-most-box">
+        <div class="header">7-DAY FORECAST</div>
+        <div class="day day-1">
+          <p>Today</p>
+          <div class="weather">
+            <img src="../images/sun.png" alt="weather" />
+            <p>Sunny</p>
+          </div>
+          <p><span>36</span>/22</p>
+        </div>
+
+        <div class="day day-2">
+          <p>Tues</p>
+          <div class="weather">
+            <img src="../images/sun.png" alt="weather" />
+            <p>Sunny</p>
+          </div>
+          <p><span>37</span>/21</p>
+        </div>
+
+        <div class="day day-3">
+          <p>Wed</p>
+          <div class="weather">
+            <img src="../images/stormy.png" alt="weather" />
+            <p>Stormy</p>
+          </div>
+          <p><span>37</span>/21</p>
+        </div>
+
+        <div class="day day-4">
+          <p>Thur</p>
+          <div class="weather">
             <img src="../images/cloudy.png" alt="weather" />
-            <p class="degrees"><span>8</span>&deg;</p>
+            <p>cloudy</p>
           </div>
+          <p><span>37</span>/21</p>
+        </div>
 
-          <div class="section twelve-pm">
-            <p>12:00 PM</p>
-            <img src="../images/clear-day.png" alt="weather" />
-            <p class="degrees"><span>17</span>&deg;</p>
+        <div class="day day-5">
+          <p>Fri</p>
+          <div class="weather">
+            <img src="../images/cloudy.png" alt="weather" />
+            <p>clouds</p>
           </div>
+          <p><span>37</span>/21</p>
+        </div>
 
-          <div class="section three-pm">
-            <p>3:00 PM</p>
+        <div class="day day-6">
+          <p>Sat</p>
+          <div class="weather">
             <img src="../images/sun.png" alt="weather" />
-            <p class="degrees"><span>31</span>&deg;</p>
+            <p>Sunny</p>
           </div>
+          <p><span>36</span>/22</p>
+        </div>
 
-          <div class="section six-pm">
-            <p>6:00 PM</p>
-            <img src="../images/sun.png" alt="weather" />
-            <p class="degrees"><span>28</span>&deg;</p>
+        <div class="day day-7">
+          <p>Sun</p>
+          <div class="weather">
+            <img src="../images/rain.png" alt="weather" />
+            <p>rainy</p>
           </div>
-
-          <div class="section nine-pm">
-            <p>9:00 PM</p>
-            <img src="../images/clear-night.png" alt="weather" />
-            <p class="degrees"><span>14</span>&deg;</p>
-          </div>
+          <p><span>36</span>/22</p>
         </div>
-      </div>
-
-      <div class="air-conditions">
-        <div class="header">
-          <p>AIR CONDITIONS</p>
-          <a href="conditions.html">See more</a>
-        </div>
-
-        <div class="grid">
-          <div class="condition">
-            <i class="fa-solid fa-temperature-half"></i>
-            <p class="description">Reel feel</p>
-            <p class="measure"><span>30</span>&deg;</p>
-          </div>
-
-          <div class="condition">
-            <i class="fa-solid fa-wind"></i>
-            <p class="description">Wind</p>
-            <p class="measure">
-              <span>0.2</span> <span class="windUnit">km/h</span>
-            </p>
-          </div>
-
-          <div class="condition">
-            <i class="fa-solid fa-droplet"></i>
-            <p class="description">Chance of Rain</p>
-            <p class="measure"><span>0</span>%</p>
-          </div>
-
-          <div class="condition">
-            <i class="fa-solid fa-sun"></i>
-            <p class="description">UV index</p>
-            <p class="measure"><span>3</span></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="week-forecast">
-      <div class="header">7-DAY FORECAST</div>
-      <div class="day day-1">
-        <p>Today</p>
-        <div class="weather">
-          <img src="../images/sun.png" alt="weather" />
-          <p>Sunny</p>
-        </div>
-        <p><span>36</span>/22</p>
-      </div>
-
-      <div class="day day-2">
-        <p>Tues</p>
-        <div class="weather">
-          <img src="../images/sun.png" alt="weather" />
-          <p>Sunny</p>
-        </div>
-        <p><span>37</span>/21</p>
-      </div>
-
-      <div class="day day-3">
-        <p>Wed</p>
-        <div class="weather">
-          <img src="../images/stormy.png" alt="weather" />
-          <p>Stormy</p>
-        </div>
-        <p><span>37</span>/21</p>
-      </div>
-
-      <div class="day day-4">
-        <p>Thur</p>
-        <div class="weather">
-          <img src="../images/cloudy.png" alt="weather" />
-          <p>cloudy</p>
-        </div>
-        <p><span>37</span>/21</p>
-      </div>
-
-      <div class="day day-5">
-        <p>Fri</p>
-        <div class="weather">
-          <img src="../images/cloudy.png" alt="weather" />
-          <p>clouds</p>
-        </div>
-        <p><span>37</span>/21</p>
-      </div>
-
-      <div class="day day-6">
-        <p>Sat</p>
-        <div class="weather">
-          <img src="../images/sun.png" alt="weather" />
-          <p>Sunny</p>
-        </div>
-        <p><span>36</span>/22</p>
-      </div>
-
-      <div class="day day-7">
-        <p>Sun</p>
-        <div class="weather">
-          <img src="../images/rain.png" alt="weather" />
-          <p>rainy</p>
-        </div>
-        <p><span>36</span>/22</p>
-      </div>
-    </section>
+      </section>
+    </main>
   </body>
 </html>

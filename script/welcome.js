@@ -4,7 +4,7 @@ let isMobileView = false;
 
 // Mobile UI function
 function handleMobileUI() {
-  const isMobile = window.innerWidth < 700;
+  const isMobile = window.innerWidth < 768;
 
   if (isMobile && !isMobileView) {
     const body = document.querySelector("body");
@@ -19,7 +19,7 @@ function handleMobileUI() {
     main.innerHTML = `
       <img src="../images/umbrella.png" alt="umbrella" />
 
-      <div>
+      <div class="title">
         <p class="large">Breeze</p>
         <p>Weather App</p>
       </div>

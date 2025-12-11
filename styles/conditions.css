@@ -79,8 +79,14 @@
   padding-top: 20px;
 }
 
+@media (max-width: 1024px) {
+  main .forecast {
+    display: none !important;
+  }
+}
+
 /* media queries */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .main {
     padding: 0;
     display: flex;

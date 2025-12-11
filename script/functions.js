@@ -215,7 +215,6 @@ function updateCurrentCityUI() {
 
 // updating time sections throught the day on UI
 function updateTimeSectionsUI(maxcount) {
-  const timeSectionsElement = document.querySelector(".time-sections");
   const timeSectionsArray = Array.from(
     document.querySelectorAll(".time-sections .section")
   );
@@ -223,34 +222,41 @@ function updateTimeSectionsUI(maxcount) {
 
   timeSectionsArray.forEach((element, index) => {
     if (index < maxcount) {
+      // Ensure the element is visible in case it was hidden
+      element.style.display = "flex";
       element.querySelector("img").src = getImage(daySections[index].icon);
       element.querySelector(".degrees span").textContent =
         daySections[index].temp;
     } else {
-      timeSectionsElement.removeChild(element);
+      // Hide the element instead of removing it
+      element.style.display = "none";
     }
   });
 }
 
 // updating week forecast on UI
 function updateWeekForecastUI(maxcount) {
-  let index = 0;
   const weekForecast = JSON.parse(localStorage.weatherData).weekForecast;
   const weekdaysUIArray = Array.from(
     document.querySelectorAll(".week-forecast .day")
   );
-  while (index < maxcount) {
-    const dayUI = weekdaysUIArray[index];
-    const dayData = weekForecast[index];
-    dayUI.querySelector("img").src = getImage(dayData.icon);
-    dayUI.querySelector(".weather p").textContent = dayData.description;
-    dayUI.children[0].textContent = dayData.dayName;
-    dayUI.children[2].innerHTML = `<span>${dayData.date[0].toString()}</span>/${
-      dayData.date[1]
-    }`;
 
-    index++;
-  }
+  weekdaysUIArray.forEach((dayUI, index) => {
+    if (index < maxcount) {
+      // Ensure the element is visible (grid) in case it was hidden
+      dayUI.style.display = "grid";
+      const dayData = weekForecast[index];
+      dayUI.querySelector("img").src = getImage(dayData.icon);
+      dayUI.querySelector(".weather p").textContent = dayData.description;
+      dayUI.children[0].textContent = dayData.dayName;
+      dayUI.children[2].innerHTML = `<span>${dayData.date[0].toString()}</span>/${
+        dayData.date[1]
+      }`;
+    } else {
+      // Hide the element
+      dayUI.style.display = "none";
+    }
+  });
 }
 
 // function for display cities in order they were searched it will be called  in pages where it is needed
@@ -310,8 +316,6 @@ function getImage(icon) {
 function formatNumber(number) {
   return number < 10 ? "0" + number : number;
 }
-
-
 
 // updating on location search by firstly checking input field is available
 const input = document.querySelector("input");

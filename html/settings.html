@@ -19,130 +19,166 @@
   </head>
 
   <body id="settings">
-    <script src="../script/sidebar.js" defer></script>
-
-    <section class="middle">
-      <div class="header">
-        <input type="text" placeholder="Search for cities" />
+    <section class="side-nav">
+      <div class="logo">
+        <a href="home.html">
+          <img src="../images/umbrella.png" />
+        </a>
       </div>
 
-      <div class="units">
-        <p class="header">Units</p>
+      <div class="nav-item">
+        <a href="home.html">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+          <p>Weather</p>
+        </a>
+      </div>
 
-        <div class="all-units">
-          <div class="aspect">
-            <p class="header">Temperature</p>
-            <div class="measure temperature">
-              <p class="active">Celsius</p>
-              <p>Fahrenheit</p>
+      <div class="nav-item">
+        <a href="cities.html">
+          <i class="fa-solid fa-list-ul"></i>
+          <p>Cities</p>
+        </a>
+      </div>
+
+      <div class="nav-item">
+        <a href="map.html">
+          <i class="fa-solid fa-map"></i>
+          <p>Map</p>
+        </a>
+      </div>
+
+      <div class="active nav-item">
+        <a href="settings.html">
+          <i class="fa-solid fa-sliders"></i>
+          <p>Settings</p>
+        </a>
+      </div>
+    </section>
+
+    <main>
+      <section class="middle">
+        <div class="search-container">
+          <input type="text" placeholder="Search for cities" />
+        </div>
+
+        <div class="units">
+          <p class="header">Units</p>
+
+          <div class="all-units">
+            <div class="aspect">
+              <p class="header">Temperature</p>
+              <div class="measure temperature">
+                <p class="active">Celsius</p>
+                <p>Fahrenheit</p>
+              </div>
             </div>
-          </div>
 
-          <div class="aspect">
-            <p class="header">Wind</p>
-            <div class="measure wind border">
-              <p class="active" id="index-0">km/h</p>
-              <p id="index-1">m/s</p>
-              <p id="index-2">knots</p>
+            <div class="aspect">
+              <p class="header">Wind</p>
+              <div class="measure wind border">
+                <p class="active" id="index-0">km/h</p>
+                <p id="index-1">m/s</p>
+                <p id="index-2">knots</p>
+              </div>
             </div>
-          </div>
 
-          <div class="aspect">
-            <p class="header">Pressure</p>
-            <div class="measure pressure border">
-              <p id="index-0">hpa</p>
-              <p id="index-1">inches</p>
-              <p id="index-2">kpa</p>
-              <p class="active" id="index-3">mm</p>
+            <div class="aspect">
+              <p class="header">Pressure</p>
+              <div class="measure pressure border">
+                <p id="index-0">hpa</p>
+                <p id="index-1">inches</p>
+                <p id="index-2">kpa</p>
+                <p class="active" id="index-3">mm</p>
+              </div>
             </div>
-          </div>
 
-          <div class="aspect">
-            <p class="header">Precipitation</p>
-            <div class="measure precipitation">
-              <p class="active">Millimeters</p>
-              <p>Inches</p>
+            <div class="aspect">
+              <p class="header">Precipitation</p>
+              <div class="measure precipitation">
+                <p class="active">Millimeters</p>
+                <p>Inches</p>
+              </div>
             </div>
-          </div>
 
-          <div class="aspect">
-            <p class="header">Distance</p>
-            <div class="measure distance">
-              <p class="active">Kilometers</p>
-              <p>Meters</p>
+            <div class="aspect">
+              <p class="header">Distance</p>
+              <div class="measure distance">
+                <p class="active">Kilometers</p>
+                <p>Meters</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div>
-        <p class="header">Notifications</p>
-
-        <div class="notifications toggle-parent">
-          <div class="content">
-            <p>Notifications</p>
-            <p>Be aware of weather</p>
-          </div>
-
-          <div class="toggle">
-            <div></div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p class="header">General</p>
 
         <div>
-          <div class="time toggle-parent">
+          <p class="header">Notifications</p>
+
+          <div class="notifications toggle-parent">
             <div class="content">
-              <p>12-Hour time</p>
+              <p>Notifications</p>
+              <p>Be aware of weather</p>
             </div>
 
             <div class="toggle">
               <div></div>
             </div>
           </div>
+        </div>
 
-          <div class="location toggle-parent">
-            <div class="content">
-              <p>Location</p>
-              <p>Get weather by location</p>
+        <div class="general">
+          <p class="header">General</p>
+
+          <div>
+            <div class="time toggle-parent">
+              <div class="content">
+                <p>12-Hour time</p>
+              </div>
+
+              <div class="toggle">
+                <div></div>
+              </div>
             </div>
 
-            <div class="toggle">
-              <div></div>
+            <div class="location toggle-parent">
+              <div class="content">
+                <p>Location</p>
+                <p>Get weather by location</p>
+              </div>
+
+              <div class="toggle">
+                <div></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="aside">
-      <div class="advanced">
-        <p>Advanced</p>
-        <div>
-          <p class="header">Get new experience</p>
+      <section class="aside">
+        <div class="advanced">
+          <p>Advanced</p>
+          <div>
+            <p class="header">Get new experience</p>
 
-          <ul>
-            <li>Ad free</li>
-            <li>Health activities overview</li>
-            <li>Severe weather notifications</li>
-          </ul>
+            <ul>
+              <li>Ad free</li>
+              <li>Health activities overview</li>
+              <li>Severe weather notifications</li>
+            </ul>
+          </div>
+
+          <div class="subscribe">
+            <p><span>$3.99</span>/month</p>
+          </div>
         </div>
 
-        <div class="subscribe">
-          <p><span>$3.99</span>/month</p>
-        </div>
-      </div>
-
-      <div class="sign-up">
-        <p class="header">Never forget your umbrella</p>
-        <p>
-          Sign up for our daily weather newsletter personalized just for you
-        </p>
-        <a href="#">Sign up</a>
-      </div>
-    </section>
+        <section class="sign-up">
+          <p class="header">Never forget your umbrella</p>
+          <p>
+            Sign up for our daily weather newsletter personalized just for you
+          </p>
+          <a href="#">Sign up</a>
+        </section>
+      </section>
+    </main>
   </body>
 </html>

@@ -31,60 +31,96 @@
   </head>
 
   <body>
-    <script src="../script/sidebar.js" defer></script>
-
-    <section class="main">
-      <div>
-        <input type="text" placeholder="Search for cities" />
+    <section class="side-nav">
+      <div class="logo">
+        <a href="home.html">
+          <img src="../images/umbrella.png" />
+        </a>
       </div>
 
-      <div id="map"></div>
-    </section>
-
-    <section class="cities">
-      <div class="city">
-        <img src="../images/sun.png" alt="weather" />
-
-        <div class="description">
-          <p class="city-name">Madrid</p>
-          <p>10:23</p>
-        </div>
-
-        <p class="degrees">37&deg;</p>
+      <div class="nav-item">
+        <a href="home.html">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+          <p>Weather</p>
+        </a>
       </div>
 
-      <div class="city">
-        <img src="../images/rain.png" alt="weather" />
-
-        <div class="description">
-          <p class="city-name">Vienna</p>
-          <p>11:54</p>
-        </div>
-
-        <p class="degrees">19&deg;</p>
+      <div class="nav-item">
+        <a href="cities.html">
+          <i class="fa-solid fa-list-ul"></i>
+          <p>Cities</p>
+        </a>
       </div>
 
-      <div class="city">
-        <img src="../images/sun.png" alt="weather" />
-
-        <div class="description">
-          <p class="city-name">Madrid</p>
-          <p>4:21</p>
-        </div>
-
-        <p class="degrees">37&deg;</p>
+      <div class="active nav-item">
+        <a href="map.html">
+          <i class="fa-solid fa-map"></i>
+          <p>Map</p>
+        </a>
       </div>
 
-      <div class="city">
-        <img src="../images/cloudy.png" alt="weather" />
-
-        <div class="description">
-          <p class="city-name">Athens</p>
-          <p>9:30</p>
-        </div>
-
-        <p class="degrees">21&deg;</p>
+      <div class="nav-item">
+        <a href="settings.html">
+          <i class="fa-solid fa-sliders"></i>
+          <p>Settings</p>
+        </a>
       </div>
     </section>
+
+    <main>
+      <section class="main">
+        <div class="search-container">
+          <input type="text" placeholder="Search for cities" />
+        </div>
+
+        <div id="map"></div>
+      </section>
+
+      <section class="cities">
+        <div class="city">
+          <img src="../images/sun.png" alt="weather" />
+
+          <div class="description">
+            <p class="city-name">Madrid</p>
+            <p>10:23</p>
+          </div>
+
+          <p class="degrees">37&deg;</p>
+        </div>
+
+        <div class="city">
+          <img src="../images/rain.png" alt="weather" />
+
+          <div class="description">
+            <p class="city-name">Vienna</p>
+            <p>11:54</p>
+          </div>
+
+          <p class="degrees">19&deg;</p>
+        </div>
+
+        <div class="city">
+          <img src="../images/sun.png" alt="weather" />
+
+          <div class="description">
+            <p class="city-name">Madrid</p>
+            <p>4:21</p>
+          </div>
+
+          <p class="degrees">37&deg;</p>
+        </div>
+
+        <div class="city">
+          <img src="../images/cloudy.png" alt="weather" />
+
+          <div class="description">
+            <p class="city-name">Athens</p>
+            <p>9:30</p>
+          </div>
+
+          <p class="degrees">21&deg;</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

@@ -183,8 +183,8 @@ getCity().then((city) => {
     }
 
     // redirect to homepage after 15s regardless of status
-    setTimeout(() => {
-      window.location.href = "../html/home.html";
-    }, 15000);
+    // setTimeout(() => {
+    //   window.location.href = "../html/home.html";
+    // }, 15000);
   });
 });

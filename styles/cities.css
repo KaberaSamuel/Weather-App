@@ -1,3 +1,7 @@
+body .search-container {
+  width: calc(100% - 10px);
+}
+
 /* main section styles */
 .main {
   background-color: var(--dark);
@@ -12,7 +16,6 @@
 .main .city-container {
   display: flex;
   margin-bottom: 15px;
-  gap: 20px;
 }
 
 .main .city-container > * {
@@ -79,6 +82,7 @@
 .main .city-container .delete {
   width: 0;
   opacity: 0;
+  margin-left: 20px;
 }
 
 .main .city-container:hover .delete {
@@ -94,19 +98,21 @@
 }
 
 /* right side */
-body > .forecast {
+main .forecast {
   display: grid;
-  grid-template-rows: 25% 30% 43%;
+  grid-template-rows: 30% 30% 40%;
   padding: 0 20px 0;
   background-color: var(--dark);
+  margin-left: -10px;
+  z-index: -1;
 }
 
-body > .forecast > div {
+main .forecast > div {
   border-bottom: var(--lineborder);
   background-color: var(--dark);
 }
 
-body > .forecast > div:last-child {
+main .forecast > div:last-child {
   border-bottom: none;
 }
 
@@ -135,9 +141,19 @@ body > .forecast > div:last-child {
   padding: 20px 0;
 }
 
-@media (max-width: 500px) {
-  .main .city-container {
-    gap: 10px;
+@media (max-width: 1024px) {
+  main .forecast {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body .search-container {
+    display: block;
+  }
+
+  .main .city-container .delete {
+    margin-left: 10px;
   }
 
   .main .city {
