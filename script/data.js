@@ -177,14 +177,13 @@ getCity().then((city) => {
   city = city.toLowerCase();
   getWeatherData(city).then(() => {
     isfetchingDataComplete = true;
-    console.log(isfetchingDataComplete);
     if (hasClickedTheButton) {
       window.location.href = "../html/home.html";
     }
 
     // redirect to homepage after 15s regardless of status
-    // setTimeout(() => {
-    //   window.location.href = "../html/home.html";
-    // }, 15000);
+    setTimeout(() => {
+      window.location.href = "../html/home.html";
+    }, 15000);
   });
 });

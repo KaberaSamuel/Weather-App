@@ -13,3 +13,5 @@ This is a clean and responsive web application that provides real-time weather i
 - **Interactive Map:** Explore weather conditions on a map to see the forecast for different regions.
 
 This app is built to be intuitive and easy to use, providing all the weather information you need at a glance.
+
+#### App Layout (Desktop Design)

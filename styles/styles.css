@@ -89,7 +89,6 @@ body main section.right-most-box {
 .side-nav {
   width: 90px;
   height: 95vh;
-  top: 10px;
   display: flex;
   flex-direction: column;
   padding: 40px 0;
@@ -99,6 +98,7 @@ body main section.right-most-box {
   font-weight: 700;
   position: sticky;
   top: 15px;
+
   transform: translateY(2px);
 }
 
@@ -307,6 +307,8 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
+  background-color: var(--lightdark);
 }
 
 #loader .loading-text {
