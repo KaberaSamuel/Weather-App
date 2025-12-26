@@ -15,3 +15,5 @@ This is a clean and responsive web application that provides real-time weather i
 This app is built to be intuitive and easy to use, providing all the weather information you need at a glance.
 
 #### App Layout (Desktop Design)
+
+![App Layout (Desktop Design)](images/app-layout.png)
